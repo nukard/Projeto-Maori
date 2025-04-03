@@ -449,6 +449,51 @@ nav ul li a:hover::after {
     overflow: hidden;
 }
 
+/* Exhibition Title */
+.exhibition-title {
+    text-align: center;
+    padding: 40px 0 10px;
+    position: relative;
+    margin-bottom: -20px;
+}
+
+.exhibition-title h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 200;
+    color: var(--primary-color);
+    letter-spacing: 4px;
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    padding: 0 20px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.exhibition-title h2::before,
+.exhibition-title h2::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    top: 50%;
+    width: 80px;
+    background: linear-gradient(to right, rgba(0,141,147,0), rgba(0,141,147,0.6));
+}
+
+.exhibition-title h2::before {
+    right: 100%;
+}
+
+.exhibition-title h2::after {
+    left: 100%;
+    background: linear-gradient(to left, rgba(0,141,147,0), rgba(0,141,147,0.6));
+}
+
 .promo-bg {
     position: absolute;
     top: 0;
@@ -525,7 +570,7 @@ nav ul li a:hover::after {
 
 /* Featured Projects */
 .featured-projects {
-    padding: 100px 0;
+    padding: 50px 0;
     background-color: white;
 }
 
@@ -728,9 +773,12 @@ nav ul li a:hover::after {
 
 .differentials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     margin-bottom: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .differential-item {
@@ -1025,11 +1073,33 @@ footer {
     .contact-info, .contact-form {
         padding: 40px;
     }
+
+    .exhibition-title h2 {
+        font-size: 2.4rem;
+    }
 }
 
 @media (max-width: 768px) {
-    .nav ul {
+    .transparent-header {
+        padding: 15px 5%;
+        background-color: rgba(29, 59, 61, 0.9);
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
+    .contact-button {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+    
+    nav ul {
         display: none;
+    }
+    
+    .hero-slider {
+        height: 90vh;
     }
     
     .slide-content {
@@ -1063,19 +1133,70 @@ footer {
         grid-template-columns: 1fr;
         gap: 30px;
     }
+
+    .exhibition-title h2 {
+        font-size: 2rem;
+    }
+    
+    .exhibition-title h2::before,
+    .exhibition-title h2::after {
+        width: 40px;
+    }
+    
+    .about-section,
+    .featured-projects,
+    .differentials,
+    .quick-contact {
+        padding: 60px 0;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .projects-side-nav {
+        position: static;
+        flex-direction: row;
+        justify-content: center;
+        transform: none;
+        margin-top: 30px;
+    }
+    
+    .projects-dots {
+        flex-direction: row;
+    }
 }
 
 @media (max-width: 576px) {
+    .transparent-header {
+        padding: 10px 4%;
+    }
+    
+    .logo img {
+        height: 35px;
+    }
+    
+    .contact-button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .hero-slider {
+        height: 85vh;
+    }
+    
     .slide-content {
         bottom: 25%;
     }
     
     .slide-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
     }
     
     .slide-description {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
     }
     
     .slide-cta {
@@ -1087,11 +1208,205 @@ footer {
         width: 100%;
     }
     
+    .btn-primary,
+    .btn-outline,
+    .btn-outline-light,
+    .btn-outline-white {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+    
+    .slider-navigation {
+        bottom: 15%;
+    }
+    
     .promo-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .promo-subtitle {
+        font-size: 1.2rem;
     }
     
     .footer-top {
         flex-direction: column;
+        gap: 40px;
     }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .exhibition-title h2 {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+    
+    .exhibition-title h2::before,
+    .exhibition-title h2::after {
+        width: 30px;
+    }
+    
+    .about-features li {
+        margin-bottom: 12px;
+    }
+    
+    .contact-info,
+    .contact-form {
+        padding: 30px 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .nav-btn {
+        font-size: 1.2rem;
+    }
+    
+    .project-card {
+        margin: 0 auto;
+        max-width: 320px;
+    }
+}
+
+/* Fix for abnormally narrow screens */
+@media (max-width: 360px) {
+    .slide-title {
+        font-size: 1.5rem;
+    }
+    
+    .slide-badge {
+        padding: 6px 12px;
+        font-size: 10px;
+    }
+    
+    .btn-primary,
+    .btn-outline,
+    .btn-outline-light,
+    .btn-outline-white {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+    
+    .contact-button {
+        display: flex;
+        align-items: center;
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+    
+    .project-card {
+        max-width: 100%;
+    }
+}
+
+/* Projects Slider */
+.projects-slider {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.projects-slider-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-slide {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: opacity 0.8s ease;
+}
+
+.projects-slide.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+/* Side Navigation */
+.projects-side-nav {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.projects-nav-right {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.projects-nav-right:hover {
+    background-color: var(--secondary-color);
+    transform: translateX(2px);
+}
+
+.projects-dots {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.projects-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.projects-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Responsive adjustments for side nav */
+@media (max-width: 768px) {
+    .projects-side-nav {
+        right: 10px;
+    }
+}
+
+/* Old navigation styles to remove */
+.projects-navigation {
+    display: none;
+}
+
+/* WhatsApp Icons */
+.whatsapp-icon {
+    height: 18px;
+    width: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.whatsapp-icon-small {
+    height: 14px;
+    width: auto;
+    margin-right: 5px;
+    vertical-align: middle;
 } 

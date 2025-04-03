@@ -7,6 +7,21 @@
     --dark-bg: #1d3b3d;
 }
 
+/* WhatsApp Icons */
+.whatsapp-icon {
+    height: 18px;
+    width: auto;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.whatsapp-icon-small {
+    height: 14px;
+    width: auto;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
 * {
     margin: 0;
     padding: 0;

@@ -66,6 +66,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Projects Slider
+    const projectsSlides = document.querySelectorAll('.projects-slide');
+    const projectsDots = document.querySelectorAll('.projects-dot');
+    const nextProjectsBtn = document.querySelector('.next-projects');
+    let currentProjectsSlide = 0;
+    
+    // Navegar para um slide específico de projetos
+    function goToProjectsSlide(n) {
+        // Remover classe ativa do slide atual
+        projectsSlides[currentProjectsSlide].classList.remove('active');
+        projectsDots[currentProjectsSlide].classList.remove('active');
+        
+        // Calcular o novo slide (loop)
+        currentProjectsSlide = (n + projectsSlides.length) % projectsSlides.length;
+        
+        // Adicionar classe ativa ao novo slide
+        projectsSlides[currentProjectsSlide].classList.add('active');
+        projectsDots[currentProjectsSlide].classList.add('active');
+    }
+    
+    // Event listeners para navegação do slider de projetos
+    nextProjectsBtn.addEventListener('click', function() {
+        goToProjectsSlide(currentProjectsSlide + 1);
+    });
+    
+    // Event listeners para dots do slider de projetos
+    projectsDots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+            if (currentProjectsSlide !== index) {
+                goToProjectsSlide(index);
+            }
+        });
+    });
+    
     // Slider de depoimentos
     const testimonials = document.querySelectorAll('.testimonial');
     const testimonialDots = document.querySelectorAll('.testimonial-dot');

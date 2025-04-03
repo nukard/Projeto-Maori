@@ -23,7 +23,9 @@
                 <li><a href="#">Blog</a></li>
             </ul>
         </nav>
-        <button class="contact-button">(41) 99569-8089</button>
+        <button class="contact-button">
+            <img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon"> (41) 99569-8089
+        </button>
     </header>
     
     <main>
@@ -146,8 +148,8 @@
                             </div>
                         </div>
                         <div class="slide-cta">
-                            <a href="#" class="btn-primary">Saiba mais</a>
-                            <a href="#" class="btn-outline btn-video">
+                            <a href="praya.html" class="btn-primary">Saiba mais</a>
+                            <a href="praya.html" class="btn-outline btn-video">
                                 <i class="fas fa-play-circle"></i> Ver vídeo
                             </a>
                         </div>
@@ -247,88 +249,165 @@
             </div>
         </section>
         
+        <!-- Título Exibição -->
+        <div class="exhibition-title">
+            <h2>Exibição</h2>
+        </div>
+        
         <!-- Empreendimentos Destaques -->
         <section class="featured-projects">
             <div class="container">
                 <div class="section-header centered">
-                    <h2 class="section-title">Empreendimentos em Destaque</h2>
                     <div class="title-underline centered"></div>
                     <p class="section-subtitle">Conheça nossos projetos exclusivos no litoral do Paraná</p>
                 </div>
                 
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/maison.jpg" alt="Maison Lumière">
-                            <div class="project-status">Em Construção</div>
+                <div class="projects-slider">
+                    <div class="projects-slider-container">
+                        <!-- Page 1: Original 3 projects -->
+                        <div class="projects-slide active">
+                            <div class="projects-grid">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="images/maison2.jpg" alt="Maison Lumière">
+                                        <div class="project-status">Em Construção</div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">Maison Lumière</h3>
+                                        <div class="project-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Caiobá
+                                        </div>
+                                        <div class="project-specs">
+                                            <div class="spec-item">
+                                                <i class="fas fa-bed"></i>
+                                                <span>3 a 4 Suítes</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <i class="fas fa-vector-square"></i>
+                                                <span>135m² a 267m²</span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn-primary small">Ver Detalhes</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="images/praya.jpg" alt="Praya Beach Home">
+                                        <div class="project-status">Em Construção</div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">Praya Beach Home</h3>
+                                        <div class="project-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Caiobá
+                                        </div>
+                                        <div class="project-specs">
+                                            <div class="spec-item">
+                                                <i class="fas fa-bed"></i>
+                                                <span>3 a 4 Suítes</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <i class="fas fa-vector-square"></i>
+                                                <span>142m² a 380m²</span>
+                                            </div>
+                                        </div>
+                                        <a href="praya.html" class="btn-primary small">Ver Detalhes</a>
+                                    </div>
+                                </div>
+                                
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="images/cyano.jpg" alt="Cyano Guaratuba">
+                                        <div class="project-status">Pré Lançamento</div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">Cyano Guaratuba</h3>
+                                        <div class="project-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Guaratuba
+                                        </div>
+                                        <div class="project-specs">
+                                            <div class="spec-item">
+                                                <i class="fas fa-bed"></i>
+                                                <span>1 Quarto | 2, 3 ou 4 Suítes</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <i class="fas fa-vector-square"></i>
+                                                <span>46m² a 256m²</span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn-primary small">Ver Detalhes</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Maison Lumière</h3>
-                            <div class="project-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                Caiobá
-                            </div>
-                            <div class="project-specs">
-                                <div class="spec-item">
-                                    <i class="fas fa-bed"></i>
-                                    <span>3 a 4 Suítes</span>
+                        
+                        <!-- Page 2: Additional 2 projects -->
+                        <div class="projects-slide">
+                            <div class="projects-grid">
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="images/jardins-caioba.jpg" alt="Jardins Caiobá">
+                                        <div class="project-status">Breve Lançamento</div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">Jardins Caiobá</h3>
+                                        <div class="project-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Caiobá
+                                        </div>
+                                        <div class="project-specs">
+                                            <div class="spec-item">
+                                                <i class="fas fa-bed"></i>
+                                                <span>1 Quarto | 2 Suítes</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <i class="fas fa-vector-square"></i>
+                                                <span>35m² a 106m²</span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn-primary small">Ver Detalhes</a>
+                                    </div>
                                 </div>
-                                <div class="spec-item">
-                                    <i class="fas fa-vector-square"></i>
-                                    <span>135m² a 267m²</span>
+                                
+                                <div class="project-card">
+                                    <div class="project-image">
+                                        <img src="images/fiori-residenza.jpg" alt="Fiori Residenza">
+                                        <div class="project-status">Breve Lançamento</div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3 class="project-title">Fiori Residenza</h3>
+                                        <div class="project-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Balneário Ipacaraí
+                                        </div>
+                                        <div class="project-specs">
+                                            <div class="spec-item">
+                                                <i class="fas fa-bed"></i>
+                                                <span>1 Quarto | 2, 3 Suítes</span>
+                                            </div>
+                                            <div class="spec-item">
+                                                <i class="fas fa-vector-square"></i>
+                                                <span>41m² a 167m²</span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn-primary small">Ver Detalhes</a>
+                                    </div>
                                 </div>
                             </div>
-                            <a href="#" class="btn-primary small">Ver Detalhes</a>
                         </div>
                     </div>
                     
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/praya.jpg" alt="Praya Beach Home">
-                            <div class="project-status">Em Construção</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Praya Beach Home</h3>
-                            <div class="project-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                Caiobá
-                            </div>
-                            <div class="project-specs">
-                                <div class="spec-item">
-                                    <i class="fas fa-bed"></i>
-                                    <span>3 a 4 Suítes</span>
-                                </div>
-                                <div class="spec-item">
-                                    <i class="fas fa-vector-square"></i>
-                                    <span>142m² a 380m²</span>
-                                </div>
-                            </div>
-                            <a href="#" class="btn-primary small">Ver Detalhes</a>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/cyano.jpg" alt="Cyano Guaratuba">
-                            <div class="project-status">Pré Lançamento</div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Cyano Guaratuba</h3>
-                            <div class="project-location">
-                                <i class="fas fa-map-marker-alt"></i>
-                                Guaratuba
-                            </div>
-                            <div class="project-specs">
-                                <div class="spec-item">
-                                    <i class="fas fa-bed"></i>
-                                    <span>1 Quarto | 2, 3 ou 4 Suítes</span>
-                                </div>
-                                <div class="spec-item">
-                                    <i class="fas fa-vector-square"></i>
-                                    <span>46m² a 256m²</span>
-                                </div>
-                            </div>
-                            <a href="#" class="btn-primary small">Ver Detalhes</a>
+                    <!-- Side Navigation Buttons -->
+                    <div class="projects-side-nav">
+                        <button class="projects-nav-btn projects-nav-right next-projects">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="projects-dots">
+                            <button class="projects-dot active" data-slide="0"></button>
+                            <button class="projects-dot" data-slide="1"></button>
                         </div>
                     </div>
                 </div>
@@ -338,64 +417,7 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Depoimentos -->
-        <section class="testimonials">
-            <div class="container">
-                <div class="section-header centered">
-                    <h2 class="section-title">O Que Dizem Nossos Clientes</h2>
-                    <div class="title-underline centered"></div>
-                </div>
-                
-                <div class="testimonials-slider">
-                    <div class="testimonial active">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
-                                <p>Escolher a Maori foi a melhor decisão para o investimento da minha família. O padrão de qualidade, os detalhes dos acabamentos e o atendimento pós-venda superaram nossas expectativas.</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <h4>Carlos R. Mendes</h4>
-                                <p>Proprietário - Fiori Residenza</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
-                                <p>Impressionante como cada detalhe foi pensado no projeto. A localização privilegiada e a vista para o mar tornam cada dia uma experiência única. O investimento valeu cada centavo.</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <h4>Ana Paula Silva</h4>
-                                <p>Proprietária - Maison Lumière</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial">
-                        <div class="testimonial-content">
-                            <div class="testimonial-quote">
-                                <i class="fas fa-quote-left"></i>
-                                <p>A pontualidade na entrega e a transparência durante todo o processo de compra me surpreenderam positivamente. A Maori entregou exatamente o que prometeu, sem surpresas negativas.</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <h4>Roberto Almeida</h4>
-                                <p>Proprietário - Cyano Guaratuba</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-nav">
-                    <button class="testimonial-dot active" data-testimonial="0"></button>
-                    <button class="testimonial-dot" data-testimonial="1"></button>
-                    <button class="testimonial-dot" data-testimonial="2"></button>
-                </div>
-            </div>
-        </section>
-        
+
         <!-- Diferencial -->
         <section class="differentials">
             <div class="container">
@@ -428,14 +450,6 @@
                         <h3>Atendimento Personalizado</h3>
                         <p>Equipe dedicada a proporcionar uma experiência única desde o primeiro contato até o pós-venda.</p>
                     </div>
-                    
-                    <div class="differential-item">
-                        <div class="differential-icon">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <h3>Compromisso com Prazos</h3>
-                        <p>Cumprimento rigoroso de cronogramas de obra, garantindo a entrega pontual dos empreendimentos.</p>
-                    </div>
                 </div>
                 
                 <div class="section-cta">
@@ -456,7 +470,7 @@
                                 <i class="fas fa-phone-alt"></i>
                                 <div>
                                     <h4>Telefone</h4>
-                                    <p>(41) 99569-8089</p>
+                                    <p><img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon-small"> (41) 99569-8089</p>
                                 </div>
                             </div>
                             <div class="contact-method">
@@ -546,7 +560,7 @@
             <div class="footer-links">
                 <h3>Contato</h3>
                 <ul>
-                    <li><a href="#">(41) 99569-8089</a></li>
+                    <li><a href="#"><img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon-small"> (41) 99569-8089</a></li>
                     <li><a href="#">Compramos seu Terreno</a></li>
                     <li><a href="#">Fale Conosco</a></li>
                 </ul>

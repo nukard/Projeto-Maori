@@ -9,6 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .project-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .project-description {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,7 +37,9 @@
                 <li><a href="#">Blog</a></li>
             </ul>
         </nav>
-        <button class="contact-button">(41) 99569-8089</button>
+        <button class="contact-button">
+            <img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon"> (41) 99569-8089
+        </button>
     </header>
     
     <main>
@@ -51,8 +67,8 @@
                 <div class="featured-content">
                     <span class="featured-badge">Breve Lançamento</span>
                     <h2 class="featured-title">Fiori Residenza</h2>
-                    <p class="featured-description">
-                        O conceito de tradição e elegância em um só lugar. Onde a beleza floresce com varandas amplas, linhas arquitetônicas marcantes e detalhes que criam uma sensação de leveza e sofisticação.
+                    <p class="project-description">
+                        O conceito de tradição e elegância em um só lugar. Um empreendimento pensado para pessoas que gostam de se sentir bem, valorizando memórias, celebrando a vida e recebendo quem amam em grande estilo.
                     </p>
                     <div class="featured-info">
                         <div class="featured-info-item">
@@ -92,7 +108,7 @@
                 <div class="featured-content">
                     <span class="featured-badge">Breve Lançamento</span>
                     <h2 class="featured-title">Jardins Caiobá</h2>
-                    <p class="featured-description">
+                    <p class="project-description">
                         Conheça seu novo Jardim. É sobre criar conexões com os elementos da terra. Cultivar, aprender e perceber cada movimento de vida ao seu redor.
                     </p>
                     <div class="featured-info">
@@ -133,7 +149,7 @@
                 <div class="featured-content">
                     <span class="featured-badge">Pré Lançamento</span>
                     <h2 class="featured-title">Cyano Guaratuba</h2>
-                    <p class="featured-description">
+                    <p class="project-description">
                         Morar no Cyano é como viver numa ilha suspensa, evocando sentidos tropicais, que capturam a magia de viver em um ambiente natural, ao mesmo tempo que oferece o conforto do luxo moderno.
                     </p>
                     <div class="featured-info">
@@ -176,7 +192,7 @@
                 <div class="featured-content">
                     <span class="featured-badge">Em Construção</span>
                     <h2 class="featured-title">Maison Lumière</h2>
-                    <p class="featured-description">
+                    <p class="project-description">
                         A casa de luz que criamos é a expressão do desejo de que seus moradores encontrem no Maison Lumière a energia que buscam em seus dias no litoral. Pensado como um espaço para confraternizar, unir amigos e curtir quem se ama.
                     </p>
                     <div class="featured-info">
@@ -219,7 +235,7 @@
                 <div class="featured-content">
                     <span class="featured-badge">Em Construção</span>
                     <h2 class="featured-title">Praya Beach Home</h2>
-                    <p class="featured-description">
+                    <p class="project-description">
                         O Praya possui no ambiente térreo, sua praia particular: um local idealizado para o máximo de diversão e relaxamento sob o sol. Construída com a mais inovadora tecnologia mundial em piscinas praia.
                     </p>
                     <div class="featured-info">
@@ -246,8 +262,8 @@
                         </div>
                     </div>
                     <div class="featured-cta">
-                        <a href="#" class="btn-primary">Saiba mais</a>
-                        <a href="#" class="btn-video btn-outline">
+                        <a href="praya.html" class="btn-primary">Saiba mais</a>
+                        <a href="praya.html" class="btn-video btn-outline">
                             <i class="fas fa-play-circle"></i> Ver vídeo
                         </a>
                     </div>
@@ -289,7 +305,7 @@
             <div class="footer-links">
                 <h3>Contato</h3>
                 <ul>
-                    <li><a href="#">(41) 99569-8089</a></li>
+                    <li><a href="#"><img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon-small"> (41) 99569-8089</a></li>
                     <li><a href="#">Compramos seu Terreno</a></li>
                     <li><a href="#">Fale Conosco</a></li>
                 </ul>
