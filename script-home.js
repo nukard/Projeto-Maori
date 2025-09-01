@@ -217,4 +217,62 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Verificar elementos visíveis na carga inicial
     checkInView();
+});
+
+// Função para abrir WhatsApp
+function openWhatsApp(message = 'Olá! Gostaria de mais informações.') {
+    const phoneNumber = '5541995698089'; // Número no formato internacional (sem + e sem espaços)
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Abrir em nova aba
+    window.open(whatsappURL, '_blank');
+}
+
+// Funcionalidade do filtro de status (apenas visual por enquanto)
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active de todos os botões
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Adiciona active no botão clicado
+            this.classList.add('active');
+            
+            // Futuramente aqui será implementada a navegação para as seções
+            const status = this.getAttribute('data-status');
+            console.log(`Filtro selecionado: ${status}`);
+            
+            // TODO: Implementar navegação para seções específicas
+            // Exemplo: document.querySelector(`#section-${status}`).scrollIntoView();
+        });
+    });
+
+    // Menu dropdown functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    
+    if (menuToggle && dropdownMenu) {
+        // Toggle dropdown on click
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!menuToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+
+        // Close dropdown on escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    }
 }); 

@@ -91,4 +91,73 @@ document.addEventListener('DOMContentLoaded', function() {
             alert(`Vídeo de ${projectTitle} será exibido em um modal (implementação pendente).`);
         });
     });
-}); 
+});
+
+// Otimização avançada de performance de scroll
+let scrollTimer = null;
+let isScrolling = false;
+let lastScrollTop = 0;
+let scrollVelocity = 0;
+
+function handleScrollOptimization() {
+    const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    scrollVelocity = Math.abs(currentScrollTop - lastScrollTop);
+    lastScrollTop = currentScrollTop;
+    
+    // Se a velocidade de scroll for alta, desabilitar efeitos
+    const isHighVelocityScroll = scrollVelocity > 5;
+    
+    if (!isScrolling || isHighVelocityScroll) {
+        isScrolling = true;
+        document.body.classList.add('scrolling');
+    }
+    
+    // Limpar o timer anterior
+    clearTimeout(scrollTimer);
+    
+    // Tempo de espera baseado na velocidade do scroll
+    const waitTime = isHighVelocityScroll ? 200 : 100;
+    
+    // Definir novo timer para detectar fim do scroll
+    scrollTimer = setTimeout(function() {
+        isScrolling = false;
+        document.body.classList.remove('scrolling');
+        scrollVelocity = 0;
+    }, waitTime);
+}
+
+// Listener de scroll otimizado com throttling
+let ticking = false;
+window.addEventListener('scroll', function() {
+    if (!ticking) {
+        requestAnimationFrame(function() {
+            handleScrollOptimization();
+            ticking = false;
+        });
+        ticking = true;
+    }
+}, { passive: true });
+
+// Também detectar quando o usuário para de interagir
+let interactionTimer = null;
+['mouseenter', 'mouseleave', 'touchstart', 'touchend'].forEach(event => {
+    document.addEventListener(event, function() {
+        clearTimeout(interactionTimer);
+        interactionTimer = setTimeout(function() {
+            if (isScrolling) {
+                document.body.classList.remove('scrolling');
+                isScrolling = false;
+            }
+        }, 50);
+    }, { passive: true });
+});
+
+// Função para abrir WhatsApp
+function openWhatsApp(message = 'Olá! Gostaria de mais informações.') {
+    const phoneNumber = '5541995698089'; // Número no formato internacional (sem + e sem espaços)
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    
+    // Abrir em nova aba
+    window.open(whatsappURL, '_blank');
+} 

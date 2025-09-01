@@ -15,17 +15,95 @@
         <div class="logo">
             <img src="images/logo-white.png" alt="Maori Incorporadora">
         </div>
-        <nav>
-            <ul>
-                <li><a href="index-home.html" class="active">Home</a></li>
-                <li><a href="#">Sobre nós</a></li>
-                <li><a href="index.html">Empreendimentos</a></li>
-                <li><a href="#">Blog</a></li>
-            </ul>
-        </nav>
-        <button class="contact-button">
-            <img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon"> (41) 99569-8089
-        </button>
+        <div class="header-right">
+            <div class="header-contacts">
+                <a href="tel:+5541995698089" class="header-phone">(41) 99569-8089</a>
+                <a href="mailto:contato@maoriincorporadora.com" class="header-email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" class="header-whatsapp" onclick="openWhatsApp('Olá! Gostaria de mais informações sobre os empreendimentos da Maori.')">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <div class="header-menu">
+                <button class="menu-toggle">
+                    <span class="menu-text">MENU PRINCIPAL</span>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+                <nav class="dropdown-menu">
+                    <div class="menu-container">
+                        <!-- Left Side - White Background -->
+                        <div class="menu-left">
+                            <div class="menu-logo">
+                                <img src="images/logo.png" alt="Maori Incorporadora">
+                            </div>
+                            <div class="menu-company">
+                                <a href="sobre.html">Somos a MAORI</a>
+                            </div>
+                            <div class="menu-section">
+                                <h4 class="menu-section-title">EMPREENDIMENTOS</h4>
+                                <ul>
+                                    <li><a href="praya.html">Praya Beach Home</a></li>
+                                    <li><a href="#">Maison Lumière</a></li>
+                                    <li><a href="#">Cyano Guaratuba</a></li>
+                                    <li><a href="#">Jardins Caiobá</a></li>
+                                    <li><a href="#">Fiori Residenza</a></li>
+                                </ul>
+                            </div>
+                            <div class="menu-footer-links">
+                                <a href="#">Código de Ética</a>
+                                <a href="#">Política de Privacidade</a>
+                                <a href="#">Política de Qualidade</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Side - Maori Color Background -->
+                        <div class="menu-right">
+                            <div class="menu-sections">
+                                <div class="menu-section">
+                                    <ul>
+                                        <li><a href="index.html">Invista com a Maori</a></li>
+                                        <li><a href="#" onclick="openWhatsApp('Olá! Tenho um terreno e gostaria de conversar sobre venda.')">Compramos seu terreno</a></li>
+                                        <li><a href="sobre.html">Diferenciais Maori</a></li>
+                                        <li><a href="#">MAORI MAIS | Campanhas de Vendas</a></li>
+                                        <li><a href="#">Blog Maori</a></li>
+                                        <li><a href="#" onclick="openWhatsApp('Olá! Gostaria de falar com a Maori.')">Fale Conosco</a></li>
+                                        <li><a href="#" onclick="openWhatsApp('Olá! Gostaria de ser um fornecedor da Maori.')">Seja um Fornecedor Maori</a></li>
+                                        <li><a href="#" onclick="openWhatsApp('Olá! Gostaria de ser uma imobiliária cadastrada.')">Seja uma Imobiliária Cadastrada</a></li>
+                                        <li><a href="#" onclick="openWhatsApp('Olá! Gostaria de trabalhar na Maori.')">Trabalhe Conosco</a></li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Social Media Icons -->
+                                <div class="menu-social">
+                                    <div class="social-icons">
+                                        <a href="#" class="social-icon instagram">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="#" class="social-icon youtube">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                        <a href="#" class="social-icon linkedin">
+                                            <i class="fab fa-linkedin-in"></i>
+                                        </a>
+                                        <a href="#" class="social-icon facebook">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a href="#" class="social-icon blog">
+                                            <i class="fas fa-blog"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </header>
     
     <main>
@@ -51,7 +129,7 @@
                         </div>
                         <div class="slide-cta">
                             <a href="praya.html" class="btn-primary">Saiba mais</a>
-                            <a href="praya.html" class="btn-outline btn-video">
+                            <a href="#" class="btn-outline btn-video" onclick="openWhatsApp('Olá! Gostaria de ver o vídeo e saber mais sobre o Praya Beach Home.')">
                                 <i class="fas fa-play-circle"></i> Ver vídeo
                             </a>
                         </div>
@@ -77,7 +155,7 @@
                         </div>
                         <div class="slide-cta">
                             <a href="#" class="btn-primary">Saiba mais</a>
-                            <a href="#" class="btn-outline btn-video">
+                            <a href="#" class="btn-outline btn-video" onclick="openWhatsApp('Olá! Gostaria de ver o vídeo e saber mais sobre o Maison Lumière.')">
                                 <i class="fas fa-play-circle"></i> Ver vídeo
                             </a>
                         </div>
@@ -103,7 +181,7 @@
                         </div>
                         <div class="slide-cta">
                             <a href="#" class="btn-primary">Saiba mais</a>
-                            <a href="#" class="btn-outline btn-video">
+                            <a href="#" class="btn-outline btn-video" onclick="openWhatsApp('Olá! Gostaria de ver o vídeo e saber mais sobre o Cyano Guaratuba.')">
                                 <i class="fas fa-play-circle"></i> Ver vídeo
                             </a>
                         </div>
@@ -128,7 +206,7 @@
                             </div>
                         </div>
                         <div class="slide-cta">
-                            <a href="#" class="btn-primary">Saiba mais</a>
+                            <a href="#" class="btn-primary" onclick="openWhatsApp('Olá! Gostaria de saber mais sobre o Jardins Caiobá.')">Saiba mais</a>
                         </div>
                     </div>
                 </div>
@@ -151,7 +229,7 @@
                             </div>
                         </div>
                         <div class="slide-cta">
-                            <a href="#" class="btn-primary">Saiba mais</a>
+                            <a href="#" class="btn-primary" onclick="openWhatsApp('Olá! Gostaria de saber mais sobre o Fiori Residenza.')">Saiba mais</a>
                         </div>
                     </div>
                 </div>
@@ -172,6 +250,104 @@
                 <button class="nav-btn next-slide">
                     <i class="fas fa-chevron-right"></i>
                 </button>
+            </div>
+            
+            <!-- Status Filter -->
+            <div class="status-filter">
+                <div class="filter-label"></div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-status="lancamento" onclick="document.getElementById('section-lancamento').scrollIntoView({ behavior: 'smooth' });">
+                        <span>Lançamentos</span>
+                    </button>
+                    <button class="filter-btn" data-status="construcao" onclick="document.querySelector('.construcao-section').scrollIntoView({ behavior: 'smooth' });">
+                        <span>Em Construção</span>
+                    </button>
+                    <button class="filter-btn" data-status="entregues" onclick="document.querySelector('.entregues-section').scrollIntoView({ behavior: 'smooth' });">
+                        <span>Entregues</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Lançamentos Section -->
+        <section class="lancamentos-section" id="section-lancamento">
+            <div class="container">
+                <div class="lancamentos-grid">
+                    <div class="lancamento-card">
+                        <div class="lancamento-image">
+                            <img src="images/cyano2.jpg" alt="Cyano Guaratuba">
+                            <div class="lancamento-overlay">
+                                <div class="lancamento-info">
+                                    <div class="lancamento-location">Guaratuba | Litoral do Paraná</div>
+                                    <h3 class="lancamento-name">CYANO</h3>
+                                    <div class="lancamento-type">GUARATUBA</div>
+                                    <div class="lancamento-description">O Paraíso visto por <strong>um novo prisma</strong></div>
+                                </div>
+                                <div class="lancamento-cta">
+                                    <button class="btn-saiba-mais" onclick="openWhatsApp('Olá! Gostaria de saber mais sobre o Cyano Guaratuba.')">
+                                        saiba mais
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-header-lancamentos">
+                        <h2 class="lancamentos-title">LANÇAMENTOS</h2>
+                        <p class="lancamentos-subtitle">Toda a sofisticação e exclusividade de um imóvel inconfundível Maori localizado nos melhores endereços do litoral do Paraná.</p>
+                        <p class="lancamentos-call">Aguarde os próximos lançamentos!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Em Construção Section -->
+        <section class="construcao-section">
+            <div class="construcao-bg" style="background-image: url('images/praya-leisure-08.jpg')"></div>
+            <div class="container">
+                <div class="construcao-grid">
+                    <div class="section-header-construcao">
+                        <h2 class="construcao-title">EM<br>CONSTRUÇÃO</h2>
+                        <p class="construcao-subtitle">A cada novo projeto, uma nova referência.<br>Confira os empreendimentos em construção.</p>
+                    </div>
+                    <div class="construcao-card">
+                        <div class="construcao-image">
+                            <img src="images/praya.jpg" alt="Praya Beach Home">
+                            <div class="construcao-overlay">
+                                <div class="construcao-info">
+                                    <div class="construcao-location">Matinhos | Litoral do Paraná</div>
+                                    <h3 class="construcao-name">PRAYA</h3>
+                                    <div class="construcao-type">BEACH HOME</div>
+                                    <div class="construcao-description"><strong>De 46m² a 256m²</strong><br>de área privativa</div>
+                                </div>
+                                <div class="construcao-cta">
+                                    <button class="btn-saiba-mais-construcao" onclick="openWhatsApp('Olá! Gostaria de saber mais sobre o Praya Beach Home em construção.')">
+                                        saiba mais
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Entregues Section -->
+        <section class="entregues-section">
+            <div class="entregues-image" style="background-image: url('images/maison2.jpg')">
+                <div class="entregues-title">ENTREGUES</div>
+                <div class="entregues-overlay">
+                    <div class="entregues-info">
+                        <div class="entregues-location">Curitiba | Batel</div>
+                        <h3 class="entregues-name">MAISON</h3>
+                        <div class="entregues-type">RESIDENCIAL</div>
+                        <div class="entregues-description"><strong>De 150m² a 450m²</strong><br>de área privativa</div>
+                        <div class="entregues-cta">
+                            <button class="btn-saiba-mais-entregues" onclick="openWhatsApp('Olá! Gostaria de saber mais sobre o Maison.')">
+                                saiba mais
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -199,79 +375,9 @@
             </div>
         </section>
         
-        <!-- Sobre a Maori -->
-        <section class="about-section">
-            <div class="container">
-                <div class="about-content">
-                    <div class="section-header">
-                        <h2 class="section-title">Sobre a Maori</h2>
-                        <div class="title-underline"></div>
-                    </div>
-                    <p class="section-description">
-                        A Maori é uma incorporadora que oferece imóveis exclusivos no litoral do Paraná, com projetos que unem sofisticação, qualidade e localização privilegiada. Nosso compromisso é criar espaços que proporcionem experiências únicas de moradia e investimento.
-                    </p>
-                    <ul class="about-features">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Empreendimentos em localizações exclusivas</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Projetos arquitetônicos únicos e inovadores</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Excelência em acabamentos e materiais</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Compromisso com prazos e qualidade</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="btn-primary">Conheça Nossa História</a>
-                </div>
-                <div class="about-image">
-                    <img src="images/about-maori.jpg" alt="Sobre a Maori">
-                </div>
-            </div>
-        </section>
+
         
-        <!-- Propaganda Cyano Guaratuba -->
-        <section class="cyano-promo">
-            <div class="promo-bg" style="background-image: url('images/cyano2.jpg')"></div>
-            <div class="container">
-                <div class="promo-content">
-                    <div class="promo-badge">Pré Lançamento</div>
-                    <h2 class="promo-title">Cyano Guaratuba</h2>
-                    <h3 class="promo-subtitle">Um paraíso suspenso em Guaratuba</h3>
-                    <p class="promo-description">
-                        Viver acima de tudo, com vistas panorâmicas para o mar e infraestrutura completa para você e sua família. O Cyano é o mais novo empreendimento da Maori que une design exclusivo, localização privilegiada e acabamentos de alto padrão.
-                    </p>
-                    <ul class="promo-features">
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <span>Apartamentos de 46m² a 256m²</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <span>Opções de 1 quarto a 4 suítes</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <span>Vista panorâmica para o mar</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check"></i>
-                            <span>Lazer completo com piscina, academia e lounge</span>
-                        </li>
-                    </ul>
-                    <div class="promo-cta">
-                        <a href="#" class="btn-primary">Condições de lançamento</a>
-                        <a href="#" class="btn-outline-white">Agende uma visita</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         
         <!-- Título Exibição -->
         <div class="exhibition-title">
@@ -442,45 +548,7 @@
             </div>
         </section>
 
-        <!-- Diferencial -->
-        <section class="differentials">
-            <div class="container">
-                <div class="section-header centered light">
-                    <h2 class="section-title">Isso sim é um novo padrão</h2>
-                    <div class="title-underline centered"></div>
-                </div>
-                
-                <div class="differentials-grid">
-                    <div class="differential-item">
-                        <div class="differential-icon">
-                            <i class="fas fa-map-marked-alt"></i>
-                        </div>
-                        <h3>Localização Privilegiada</h3>
-                        <p>Empreendimentos em pontos estratégicos do litoral paranaense, com fácil acesso e próximos a infraestrutura completa.</p>
-                    </div>
-                    
-                    <div class="differential-item">
-                        <div class="differential-icon">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <h3>Design Exclusivo</h3>
-                        <p>Projetos arquitetônicos que valorizam a estética, o conforto e a funcionalidade, com assinatura de renomados arquitetos.</p>
-                    </div>
-                    
-                    <div class="differential-item">
-                        <div class="differential-icon">
-                            <i class="fas fa-hand-holding-heart"></i>
-                        </div>
-                        <h3>Atendimento Personalizado</h3>
-                        <p>Equipe dedicada a proporcionar uma experiência única desde o primeiro contato até o pós-venda.</p>
-                    </div>
-                </div>
-                
-                <div class="section-cta">
-                    <a href="#" class="btn-outline-light">Conheça Nossos Diferenciais</a>
-                </div>
-            </div>
-        </section>
+
         
         <!-- Contato Rápido -->
         <section class="quick-contact">
@@ -494,7 +562,7 @@
                                 <i class="fas fa-phone-alt"></i>
                                 <div>
                                     <h4>Telefone</h4>
-                                    <p><img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon-small"> (41) 99569-8089</p>
+                                    <p><a href="#" onclick="openWhatsApp('Olá! Gostaria de falar com a Maori.')" style="color: inherit; text-decoration: none;"><img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon-small"> (41) 99569-8089</a></p>
                                 </div>
                             </div>
                             <div class="contact-method">
@@ -574,7 +642,7 @@
                 <h3>Páginas</h3>
                 <ul>
                     <li><a href="index-home.html">Home</a></li>
-                    <li><a href="#">Sobre nós</a></li>
+                    <li><a href="sobre.html">Sobre nós</a></li>
                     <li><a href="index.html">Empreendimentos</a></li>
                     <li><a href="#">Blog</a></li>
                     <li><a href="#">Trabalhe conosco</a></li>
@@ -584,9 +652,9 @@
             <div class="footer-links">
                 <h3>Contato</h3>
                 <ul>
-                    <li><a href="#"><img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon-small"> (41) 99569-8089</a></li>
-                    <li><a href="#">Compramos seu Terreno</a></li>
-                    <li><a href="#">Fale Conosco</a></li>
+                    <li><a href="#" onclick="openWhatsApp('Olá! Gostaria de falar com a Maori.')"><img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon-small"> (41) 99569-8089</a></li>
+                    <li><a href="#" onclick="openWhatsApp('Olá! Tenho um terreno e gostaria de conversar sobre venda.')">Compramos seu Terreno</a></li>
+                    <li><a href="#" onclick="openWhatsApp('Olá! Gostaria de falar com a Maori.')">Fale Conosco</a></li>
                 </ul>
             </div>
             
