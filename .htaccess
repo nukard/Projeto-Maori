@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Enable clean URLs for trabalhe-conosco
+RewriteRule ^trabalhe-conosco/?$ trabalhe-conosco.html [L]
+
+# Optional: Add other clean URL rules
+RewriteRule ^sobre/?$ sobre.html [L]
+RewriteRule ^empreendimentos/?$ index.html [L]
+RewriteRule ^praya/?$ praya.html [L]
+RewriteRule ^home/?$ index-home.html [L]
+
+# Optional: Redirect .html to clean URLs
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*)\.html[\s?] [NC]
+RewriteRule ^ /%1? [R=301,L]
