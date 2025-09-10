@@ -1,4 +1,12 @@
-# 🧩 Sistema de Componentes Dinâmicos - Maori Incorporadora
+# 🚀 Migração para Eleventy - Maori Incorporadora
+
+## ✅ MIGRAÇÃO CONCLUÍDA
+
+Este projeto foi **migrado com sucesso** do sistema de componentes JavaScript vanilla para **Eleventy (11ty)** - um gerador de sites estáticos moderno e profissional.
+
+---
+
+# 🧩 ~~Sistema de Componentes Dinâmicos~~ - OBSOLETO
 
 ## 📋 Visão Geral
 

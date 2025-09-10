@@ -1,0 +1,26 @@
+{
+  "name": "cursordemo",
+  "version": "1.0.0",
+  "description": "Static site powered by [Eleventy](https://www.11ty.dev/).",
+  "main": ".eleventy.js",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "start": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eribeiro3478/Maori.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eribeiro3478/Maori/issues"
+  },
+  "homepage": "https://github.com/eribeiro3478/Maori#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
