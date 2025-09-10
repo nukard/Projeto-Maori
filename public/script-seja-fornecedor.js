@@ -1,29 +1,33 @@
-// Trabalhe Conosco - JavaScript Functionality
+// Seja um Fornecedor Maori - JavaScript Functionality
 // Maori Incorporadora
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeFormFunctionality();
-    initializeModalFunctionality();
     initializeFileUpload();
     initializeFormValidation();
     initializePhoneMasks();
-    initializeSalaryMask();
+    initializeScrollAnimations();
+    initializeHeaderScroll();
+    initializeSmoothScroll();
+    // Menu toggle is now handled by shared-components.js
 });
 
 // Form Functionality
 function initializeFormFunctionality() {
-    const form = document.getElementById('applicationForm');
+    const form = document.getElementById('supplierForm');
     
     if (form) {
         form.addEventListener('submit', handleFormSubmit);
     }
 
-    // Dynamic cargo options based on area
-    const areaSelect = document.getElementById('areaInteresse');
-    const cargoSelect = document.getElementById('cargo');
+    // Handle tipo de fornecimento field options
+    const tipoFornecimentoSelect = document.getElementById('tipoFornecimento');
+    const categorizacaoSelect = document.getElementById('categorizacao');
     
-    if (areaSelect && cargoSelect) {
-        areaSelect.addEventListener('change', updateCargoOptions);
+    if (tipoFornecimentoSelect && categorizacaoSelect) {
+        tipoFornecimentoSelect.addEventListener('change', function() {
+            updateCategorizacaoOptions(this.value);
+        });
     }
     
     // Add error clearing listeners to all form fields
@@ -43,35 +47,31 @@ function initializeFormFunctionality() {
             }
         });
     });
+}
+
+// Update categorização options based on tipo de fornecimento
+function updateCategorizacaoOptions(tipo) {
+    const categorizacaoSelect = document.getElementById('categorizacao');
+    const materialOptions = document.getElementById('materialOptions');
+    const servicoOptions = document.getElementById('servicoOptions');
     
-    // Handle referral field visibility
-    const foiIndicadoSelect = document.getElementById('foiIndicado');
-    const nomeIndicadorGroup = document.getElementById('nomeIndicadorGroup');
-    const nomeIndicadorInput = document.getElementById('nomeIndicador');
+    // Reset select
+    categorizacaoSelect.innerHTML = '<option value="">Selecione</option>';
     
-    if (foiIndicadoSelect && nomeIndicadorGroup && nomeIndicadorInput) {
-        foiIndicadoSelect.addEventListener('change', function() {
-            if (this.value === 'sim') {
-                nomeIndicadorGroup.style.display = 'block';
-                nomeIndicadorInput.required = true;
-                // Smooth transition
-                setTimeout(() => {
-                    nomeIndicadorGroup.style.opacity = '1';
-                    nomeIndicadorGroup.style.transform = 'translateY(0)';
-                }, 10);
-            } else {
-                nomeIndicadorGroup.style.opacity = '0';
-                nomeIndicadorGroup.style.transform = 'translateY(-10px)';
-                nomeIndicadorInput.required = false;
-                nomeIndicadorInput.value = '';
-                // Hide after transition
-                setTimeout(() => {
-                    if (nomeIndicadorGroup.style.opacity === '0') {
-                        nomeIndicadorGroup.style.display = 'none';
-                    }
-                }, 300);
-            }
-        });
+    if (tipo === 'material') {
+        // Show material options
+        materialOptions.style.display = 'block';
+        servicoOptions.style.display = 'none';
+        categorizacaoSelect.appendChild(materialOptions);
+    } else if (tipo === 'servico') {
+        // Show service options
+        materialOptions.style.display = 'none';
+        servicoOptions.style.display = 'block';
+        categorizacaoSelect.appendChild(servicoOptions);
+    } else {
+        // Hide both
+        materialOptions.style.display = 'none';
+        servicoOptions.style.display = 'none';
     }
 }
 
@@ -98,13 +98,19 @@ function handleFormSubmit(e) {
     const formData = new FormData(form);
     
     // Convert to regular object for email
-    const applicationData = {};
+    const supplierData = {};
     for (let [key, value] of formData.entries()) {
-        applicationData[key] = value;
+        supplierData[key] = value;
+    }
+    
+    // Handle multiple files
+    const files = form.querySelector('#documentos').files;
+    if (files.length > 0) {
+        supplierData.documentos = Array.from(files).map(file => file.name).join(', ');
     }
     
     // Send email with form data
-    sendApplicationEmail(applicationData)
+    sendSupplierEmail(supplierData)
         .then(() => {
             // Reset loading state
             submitBtn.classList.remove('loading');
@@ -116,9 +122,12 @@ function handleFormSubmit(e) {
             // Reset form
             form.reset();
             updateFileName('Nenhum arquivo selecionado');
+            
+            // Reset categorização
+            updateCategorizacaoOptions('');
         })
         .catch((error) => {
-            console.error('Error sending application:', error);
+            console.error('Error sending supplier registration:', error);
             
             // Reset loading state
             submitBtn.classList.remove('loading');
@@ -129,34 +138,38 @@ function handleFormSubmit(e) {
         });
 }
 
-// Send application email
-async function sendApplicationEmail(data) {
+// Send supplier registration email
+async function sendSupplierEmail(data) {
     // Create email content
+    const tipoText = data.tipoFornecimento === 'material' ? 'Material' : 'Serviço';
+    
     const emailContent = `
-Nova Candidatura - Maori Incorporadora
+Novo Cadastro de Fornecedor - Maori Incorporadora
 
-=== DADOS DO CANDIDATO ===
-Nome: ${data.fullName || 'Não informado'}
+=== DADOS DA EMPRESA ===
+Nome da Empresa: ${data.nomeEmpresa || 'Não informado'}
+Nome do Responsável: ${data.nomeResponsavel || 'Não informado'}
 E-mail: ${data.email || 'Não informado'}
 Celular: ${data.celular || 'Não informado'}
-Cidade: ${data.cidadeResidencia || 'Não informado'}
-Estado: ${data.estado || 'Não informado'}
+Telefone: ${data.telefone || 'Não informado'}
+Cidade: ${data.cidade || 'Não informado'}
 
-=== DADOS DA VAGA ===
-Área de Interesse: ${data.areaInteresse || 'Não informado'}
-Cargo: ${data.cargo || 'Não informado'}
-Foi Indicado: ${data.foiIndicado || 'Não informado'}
-Pretensão Salarial: ${data.pretensaoSalarial || 'Não informado'}
+=== TIPO DE FORNECIMENTO ===
+Tipo: ${tipoText}
+Categorização: ${data.categorizacao || 'Não informado'}
 
-=== CURRÍCULO ===
-${data.curriculo ? 'Currículo anexado: ' + data.curriculo.name : 'Nenhum currículo anexado'}
+=== MENSAGEM ===
+${data.mensagem || 'Nenhuma mensagem enviada'}
 
-Data da Candidatura: ${new Date().toLocaleString('pt-BR')}
+=== DOCUMENTOS ===
+${data.documentos ? 'Documentos anexados: ' + data.documentos : 'Nenhum documento anexado'}
+
+Data do Cadastro: ${new Date().toLocaleString('pt-BR')}
     `.trim();
     
     // For now, this will create a mailto link since we can't send emails directly from frontend
     // In a real implementation, you would send this to a backend API
-    const mailtoLink = `mailto:thales@nukard.com.br?subject=Nova Candidatura - ${data.fullName || 'Candidato'}&body=${encodeURIComponent(emailContent)}`;
+    const mailtoLink = `mailto:thales@nukard.com.br?subject=Novo Cadastro de Fornecedor - ${data.nomeEmpresa || 'Fornecedor'}&body=${encodeURIComponent(emailContent)}`;
     
     // Open default email client
     window.open(mailtoLink);
@@ -195,16 +208,75 @@ function showErrorMessage() {
 function createErrorModal() {
     const modal = document.createElement('div');
     modal.className = 'modal';
+    modal.style.cssText = `
+        display: block;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+    `;
+    
     modal.innerHTML = `
-        <div class="modal-content">
-            <div class="modal-header" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);">
-                <h3><i class="fas fa-exclamation-triangle"></i> Erro no Envio</h3>
-                <span class="close" onclick="this.closest('.modal').style.display='none'">&times;</span>
+        <div style="
+            background-color: white;
+            margin: 10% auto;
+            padding: 0;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: modalSlideIn 0.3s ease-out;
+        ">
+            <div style="
+                background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+                color: white;
+                padding: 30px;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            ">
+                <h3 style="font-size: 1.3rem; font-weight: 600; margin: 0; flex: 1;">
+                    <i class="fas fa-exclamation-triangle"></i> Erro no Envio
+                </h3>
+                <span onclick="this.closest('.modal').style.display='none'" style="
+                    color: white;
+                    font-size: 28px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    width: 35px;
+                    height: 35px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    transition: all 0.3s ease;
+                ">&times;</span>
             </div>
-            <div class="modal-body">
-                <p>Ocorreu um erro ao enviar sua candidatura. Por favor, tente novamente ou entre em contato diretamente pelo WhatsApp.</p>
+            <div style="padding: 30px; text-align: center;">
+                <p style="margin-bottom: 30px; color: #666; line-height: 1.6;">
+                    Ocorreu um erro ao enviar seu cadastro. Por favor, tente novamente ou entre em contato diretamente pelo WhatsApp.
+                </p>
                 <div style="margin-top: 20px;">
-                    <button class="btn-primary" onclick="openWhatsApp('Olá! Gostaria de enviar minha candidatura para trabalhar na Maori.'); this.closest('.modal').style.display='none'">
+                    <button onclick="openWhatsApp('Olá! Gostaria de me cadastrar como fornecedor da Maori.'); this.closest('.modal').style.display='none'" style="
+                        background-color: #008d93;
+                        color: white;
+                        border: none;
+                        padding: 12px 24px;
+                        border-radius: 25px;
+                        font-weight: 600;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        font-family: 'Montserrat', sans-serif;
+                    ">
                         <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
                     </button>
                 </div>
@@ -218,168 +290,115 @@ function createErrorModal() {
 function createSuccessModal() {
     const modal = document.createElement('div');
     modal.className = 'modal';
+    modal.style.cssText = `
+        display: block;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+    `;
+    
     modal.innerHTML = `
-        <div class="modal-content">
-            <div class="modal-header" style="background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);">
-                <h3><i class="fas fa-check-circle"></i> Candidatura Enviada!</h3>
-                <span class="close" onclick="this.closest('.modal').style.display='none'">&times;</span>
+        <div style="
+            background-color: white;
+            margin: 10% auto;
+            padding: 0;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: modalSlideIn 0.3s ease-out;
+        ">
+            <div style="
+                background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+                color: white;
+                padding: 30px;
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            ">
+                <h3 style="font-size: 1.3rem; font-weight: 600; margin: 0; flex: 1;">
+                    <i class="fas fa-check-circle"></i> Cadastro Enviado!
+                </h3>
+                <span onclick="this.closest('.modal').style.display='none'" style="
+                    color: white;
+                    font-size: 28px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    width: 35px;
+                    height: 35px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    transition: all 0.3s ease;
+                ">&times;</span>
             </div>
-            <div class="modal-body">
-                <p>Sua candidatura foi enviada com sucesso! Nossa equipe de RH analisará seu perfil e retornará em breve.</p>
-                <p>Você também pode acompanhar o status da sua candidatura através do e-mail <strong>selecao@grupolaguna.com.br</strong></p>
+            <div style="padding: 30px; text-align: center;">
+                <p style="margin-bottom: 20px; color: #666; line-height: 1.6;">
+                    Seu cadastro foi enviado com sucesso! Nossa equipe de compras analisará suas informações e retornará em breve.
+                </p>
+                <p style="color: #666; line-height: 1.6;">
+                    Você também pode entrar em contato diretamente através do e-mail <strong>compras@maoriincorporadora.com</strong>
+                </p>
             </div>
         </div>
     `;
     return modal;
 }
 
-// Update cargo options based on selected area
-function updateCargoOptions(e) {
-    const areaValue = e.target.value;
-    const cargoSelect = document.getElementById('cargo');
-    
-    // Clear current options
-    cargoSelect.innerHTML = '<option value="">Selecione</option>';
-    
-    const cargoOptions = {
-        'administrativo': [
-            { value: 'analista', text: 'Analista' },
-            { value: 'assistente', text: 'Assistente' },
-            { value: 'coordenador', text: 'Coordenador' },
-            { value: 'diretor', text: 'Diretor' },
-            { value: 'estagiario', text: 'Estagiário' },
-            { value: 'profissional-campo', text: 'Profissional de Campo' },
-            { value: 'tecnico', text: 'Técnico' }
-        ],
-        'operacional': [
-            { value: 'analista', text: 'Analista' },
-            { value: 'assistente', text: 'Assistente' },
-            { value: 'coordenador', text: 'Coordenador' },
-            { value: 'diretor', text: 'Diretor' },
-            { value: 'estagiario', text: 'Estagiário' },
-            { value: 'profissional-campo', text: 'Profissional de Campo' },
-            { value: 'tecnico', text: 'Técnico' }
-        ],
-        'comercial': [
-            { value: 'consultor-negocios', text: 'Consultor de Negócios Imobiliários' }
-        ],
-        'engenharia': [
-            { value: 'analista-engenharia', text: 'Analista de Engenharia (Obras)' },
-            { value: 'estagiario-engenharia', text: 'Estagiário em Engenharia Civil' }
-        ],
-        'incorporacao': [
-            { value: 'especialista-incorporacao', text: 'Especialista em Incorporação' }
-        ]
-    };
-    
-    if (cargoOptions[areaValue]) {
-        cargoOptions[areaValue].forEach(option => {
-            const optionElement = document.createElement('option');
-            optionElement.value = option.value;
-            optionElement.textContent = option.text;
-            cargoSelect.appendChild(optionElement);
-        });
-    }
-}
-
-// Modal Functionality
-function initializeModalFunctionality() {
-    const modal = document.getElementById('jobModal');
-    
-    // Close modal when clicking outside
-    if (modal) {
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeJobModal();
-            }
-        });
-    }
-    
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal && modal.style.display === 'block') {
-            closeJobModal();
-        }
-    });
-}
-
-// Open job modal
-function openJobModal(jobTitle) {
-    const modal = document.getElementById('jobModal');
-    const modalTitle = document.getElementById('modalJobTitle');
-    
-    if (modal && modalTitle) {
-        modalTitle.textContent = jobTitle;
-        modal.style.display = 'block';
-        // Removed document.body.style.overflow = 'hidden' to allow scrolling
-    }
-}
-
-// Close job modal
-function closeJobModal() {
-    const modal = document.getElementById('jobModal');
-    
-    if (modal) {
-        modal.style.display = 'none';
-        // Removed document.body.style.overflow = 'auto' since we're not blocking scroll anymore
-    }
-}
-
-// Scroll to form
-function scrollToForm() {
-    const formSection = document.querySelector('.application-section');
-    
-    if (formSection) {
-        formSection.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-        });
-        
-        // Close modal after scrolling
-        setTimeout(() => {
-            closeJobModal();
-        }, 500);
-        
-        // Focus on first form field
-        setTimeout(() => {
-            const firstInput = document.getElementById('fullName');
-            if (firstInput) {
-                firstInput.focus();
-            }
-        }, 1000);
-    }
-}
-
 // File Upload Functionality
 function initializeFileUpload() {
-    const fileInput = document.getElementById('curriculo');
+    const fileInput = document.getElementById('documentos');
     const fileName = document.querySelector('.file-name');
     
     if (fileInput && fileName) {
         fileInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
+            const files = e.target.files;
             
-            if (file) {
-                // Validate file size (10MB max)
-                if (file.size > 10 * 1024 * 1024) {
-                    alert('Arquivo muito grande. O tamanho máximo permitido é 10MB.');
-                    fileInput.value = '';
-                    updateFileName('Nenhum arquivo selecionado');
-                    return;
+            if (files.length > 0) {
+                let totalSize = 0;
+                let fileNames = [];
+                let invalidFiles = [];
+                
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    
+                    // Validate file size (10MB max per file)
+                    if (file.size > 10 * 1024 * 1024) {
+                        invalidFiles.push(`${file.name} (muito grande - máx 10MB)`);
+                        continue;
+                    }
+                    
+                    // Validate file type
+                    const allowedTypes = ['.pdf', '.doc', '.docx', '.jpg', '.jpeg', '.png'];
+                    const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
+                    
+                    if (!allowedTypes.includes(fileExtension)) {
+                        invalidFiles.push(`${file.name} (tipo não permitido)`);
+                        continue;
+                    }
+                    
+                    totalSize += file.size;
+                    fileNames.push(file.name);
                 }
                 
-                // Validate file type
-                const allowedTypes = ['.pdf', '.doc', '.docx', '.jpg', '.jpeg', '.png'];
-                const fileExtension = '.' + file.name.split('.').pop().toLowerCase();
-                
-                if (!allowedTypes.includes(fileExtension)) {
-                    alert('Tipo de arquivo não permitido. Use apenas: PDF, DOC, DOCX, JPG, JPEG ou PNG.');
-                    fileInput.value = '';
-                    updateFileName('Nenhum arquivo selecionado');
-                    return;
+                if (invalidFiles.length > 0) {
+                    alert(`Arquivos inválidos:\n${invalidFiles.join('\n')}\n\nApenas arquivos PDF, DOC, DOCX, JPG, JPEG ou PNG até 10MB são permitidos.`);
                 }
                 
-                updateFileName(file.name);
+                if (fileNames.length > 0) {
+                    updateFileName(`${fileNames.length} arquivo(s) selecionado(s): ${fileNames.join(', ')}`);
+                } else {
+                    fileInput.value = '';
+                    updateFileName('Nenhum arquivo selecionado');
+                }
             } else {
                 updateFileName('Nenhum arquivo selecionado');
             }
@@ -398,7 +417,7 @@ function updateFileName(name) {
 
 // Form Validation
 function initializeFormValidation() {
-    const form = document.getElementById('applicationForm');
+    const form = document.getElementById('supplierForm');
     
     if (form) {
         // Real-time validation for email
@@ -466,7 +485,7 @@ function clearFieldError(field) {
 
 // Phone Masks
 function initializePhoneMasks() {
-    const phoneInputs = document.querySelectorAll('#celular');
+    const phoneInputs = document.querySelectorAll('#telefone, #celular');
     
     phoneInputs.forEach(input => {
         input.addEventListener('input', function(e) {
@@ -505,39 +524,23 @@ function initializePhoneMasks() {
     });
 }
 
-// Salary Mask
-function initializeSalaryMask() {
-    const salaryInput = document.getElementById('pretensaoSalarial');
+// Scroll to form
+function scrollToForm() {
+    const formSection = document.querySelector('.registration-section');
     
-    if (salaryInput) {
-        salaryInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            
-            if (value) {
-                value = (parseInt(value) / 100).toFixed(2);
-                value = value.replace('.', ',');
-                value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-                value = 'R$ ' + value;
-            }
-            
-            e.target.value = value;
+    if (formSection) {
+        formSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
         });
         
-        salaryInput.addEventListener('keydown', function(e) {
-            // Allow backspace, delete, tab, escape, enter
-            if ([8, 9, 27, 13, 46].indexOf(e.keyCode) !== -1 ||
-                // Allow Ctrl+A, Ctrl+C, Ctrl+V, Ctrl+X
-                (e.keyCode === 65 && e.ctrlKey === true) ||
-                (e.keyCode === 67 && e.ctrlKey === true) ||
-                (e.keyCode === 86 && e.ctrlKey === true) ||
-                (e.keyCode === 88 && e.ctrlKey === true)) {
-                return;
+        // Focus on first form field
+        setTimeout(() => {
+            const firstInput = document.getElementById('nomeEmpresa');
+            if (firstInput) {
+                firstInput.focus();
             }
-            // Ensure it's a number
-            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-                e.preventDefault();
-            }
-        });
+        }, 1000);
     }
 }
 
@@ -556,9 +559,9 @@ function initializeScrollAnimations() {
         });
     }, observerOptions);
 
-    // Observe job cards
-    const jobCards = document.querySelectorAll('.job-card');
-    jobCards.forEach(card => {
+    // Observe benefit cards
+    const benefitCards = document.querySelectorAll('.benefit-card');
+    benefitCards.forEach(card => {
         card.style.opacity = '0';
         observer.observe(card);
     });
@@ -648,9 +651,8 @@ function initializeSmoothScroll() {
     });
 }
 
-
 // WhatsApp function
-function openWhatsApp(message = 'Olá! Gostaria de mais informações sobre oportunidades de trabalho na Maori.') {
+function openWhatsApp(message = 'Olá! Gostaria de mais informações sobre como ser um fornecedor da Maori.') {
     const phoneNumber = '5541995698089';
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -689,26 +691,19 @@ function clearFormErrors(form) {
     });
 }
 
-// Search functionality removed as per user request
-
-// Initialize all functionality when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    initializeScrollAnimations();
-    initializeHeaderScroll();
-    initializeSmoothScroll();
-    initializeMenuToggle();
-});
-
 // Prevent form submission if there are validation errors
 function validateFormBeforeSubmit() {
-    const form = document.getElementById('applicationForm');
+    const form = document.getElementById('supplierForm');
     const requiredFields = form.querySelectorAll('input[required], select[required]');
     let hasErrors = false;
     
     requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-            showFieldError(field, 'Este campo é obrigatório');
-            hasErrors = true;
+        // Only validate visible required fields
+        if (field.offsetParent !== null && field.hasAttribute('required')) {
+            if (!field.value.trim()) {
+                showFieldError(field, 'Este campo é obrigatório');
+                hasErrors = true;
+            }
         }
     });
     
@@ -732,7 +727,7 @@ function validateFormBeforeSubmit() {
 
 // Update form submit handler to include validation
 document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('applicationForm');
+    const form = document.getElementById('supplierForm');
     
     if (form) {
         form.addEventListener('submit', function(e) {

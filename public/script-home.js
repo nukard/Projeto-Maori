@@ -250,29 +250,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Menu dropdown functionality
-    const menuToggle = document.querySelector('.menu-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    
-    if (menuToggle && dropdownMenu) {
-        // Toggle dropdown on click
-        menuToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('show');
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            if (!menuToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.remove('show');
-            }
-        });
-
-        // Close dropdown on escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                dropdownMenu.classList.remove('show');
-            }
-        });
-    }
+    // Menu dropdown functionality is now handled by shared-components.js
 }); 

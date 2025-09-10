@@ -1,105 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabalhe Conosco | Maori Incorporadora</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles-trabalhe-conosco.css">
-</head>
-<body>
-    <header class="transparent-header">
-        <div class="logo">
-            <a href="index-home.html">
-                <img src="images/logo-white.png" alt="Maori Incorporadora">
-            </a>
-        </div>
-        <div class="header-right">
-            <div class="header-contacts">
-                <a href="tel:+5541995698089" class="header-phone">(41) 99569-8089</a>
-                <a href="mailto:contato@maoriincorporadora.com" class="header-email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="#" class="header-whatsapp" onclick="openWhatsApp('Olá! Gostaria de mais informações sobre oportunidades de trabalho na Maori.')">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </div>
-            <div class="header-menu">
-                <button class="menu-toggle">
-                    <span class="menu-text">MENU PRINCIPAL</span>
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </button>
-                <nav class="dropdown-menu">
-                    <div class="menu-container">
-                        <!-- Left Side - White Background -->
-                        <div class="menu-left">
-                            <div class="menu-logo">
-                                <img src="images/logo.png" alt="Maori Incorporadora">
-                            </div>
-                            <div class="menu-company">
-                                <a href="sobre.html">Somos a MAORI</a>
-                            </div>
-                            <div class="menu-section">
-                                <h4 class="menu-section-title">EMPREENDIMENTOS</h4>
-                                <ul>
-                                    <li><a href="praya.html">Praya Beach Home</a></li>
-                                    <li><a href="#">Cyano Guaratuba</a></li>
-                                    <li><a href="#">Maison Lumière</a></li>
-                                    <li><a href="#">Jardins Caiobá</a></li>
-                                    <li><a href="#">Fiori Residenza</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Right Side - Teal Background -->
-                        <div class="menu-right">
-                            <div class="menu-close">
-                                <span>&times;</span>
-                            </div>
-                            
-                            <div class="menu-section">
-                                <h4 class="menu-section-title">PÁGINAS</h4>
-                                <ul>
-                                    <li><a href="index-home.html">Home</a></li>
-                                    <li><a href="sobre.html">Sobre nós</a></li>
-                                    <li><a href="index.html">Empreendimentos</a></li>
-                                    <li><a href="#">Blog Maori</a></li>
-                                </ul>
-                            </div>
-                            
-                            <div class="menu-section">
-                                <h4 class="menu-section-title">SERVIÇOS</h4>
-                                <ul>
-                                    <li><a href="fale-conosco.html">Fale Conosco</a></li>
-                                    <li><a href="seja-fornecedor.html">Seja um Fornecedor Maori</a></li>
-                                    <li><a href="seja-imobiliaria-cadastrada.html">Seja uma Imobiliária Cadastrada</a></li>
-                                    <li><a href="trabalhe-conosco.html" class="active">Trabalhe Conosco</a></li>
-                                </ul>
-                            </div>
-                            
-                            <!-- Social Media Icons -->
-                            <div class="menu-social">
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
+---
+layout: layouts/base.njk
+title: Trabalhe Conosco | Maori Incorporadora
+css: styles-trabalhe-conosco.css
+js: script-trabalhe-conosco.js
+permalink: /trabalhe-conosco/
+---
 
-    <main>
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
@@ -408,81 +314,27 @@
                 </div>
             </div>
         </section>
-    </main>
-
-    <footer>
-        <div class="footer-top">
-            <div class="footer-info">
-                <div class="footer-logo">
-                    <img src="images/logo-white.png" alt="Maori Incorporadora" height="40">
-                </div>
-                <div class="footer-address">
-                    Rua Capitão Souza Franco, 326<br>
-                    Curitiba | PR | Brasil
-                </div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Páginas</h3>
-                <ul>
-                    <li><a href="index-home.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre nós</a></li>
-                    <li><a href="index.html">Empreendimentos</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="trabalhe-conosco.html">Trabalhe conosco</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Contato</h3>
-                <ul>
-                    <li><a href="#" onclick="openWhatsApp('Olá! Gostaria de falar com a Maori.')"><img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon-small"> (41) 99569-8089</a></li>
-                    <li><a href="#" onclick="openWhatsApp('Olá! Tenho um terreno e gostaria de conversar sobre venda.')">Compramos seu Terreno</a></li>
-                    <li><a href="fale-conosco.html">Fale Conosco</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-newsletter">
-                <h3>Newsletter</h3>
-                <p>Receba novidades, lançamentos e ofertas exclusivas da Maori.</p>
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Seu e-mail">
-                    <button type="submit" class="newsletter-button">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
         
-        <div class="footer-bottom">
-            <p>© Maori Construtora e Incorporadora 2023. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Job Modal -->
-    <div id="jobModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalJobTitle">Título da Vaga</h3>
-                <span class="close" onclick="closeJobModal()">&times;</span>
-            </div>
-            <div class="modal-body">
-                <p>Para se candidatar a esta vaga, preencha o formulário abaixo ou envie seu currículo para <a href="mailto:teste@maori.com">selecao@maori.com.br</a></p>
-                <div class="modal-actions">
-                    <button class="btn-primary" onclick="scrollToForm()">Preencher Formulário</button>
-                    <button class="btn-outline" onclick="openWhatsApp('Olá! Gostaria de me candidatar à vaga de ' + document.getElementById('modalJobTitle').textContent)">Falar no WhatsApp</button>
+        <!-- Mobile Navigation (visible only on mobile) -->
+        <section class="mobile-nav-section">
+            <div class="container">
+                <div class="mobile-nav-menu">
+                    <a href="/" class="mobile-nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="/sobre/" class="mobile-nav-item">
+                        <i class="fas fa-building"></i>
+                        <span>Sobre nós</span>
+                    </a>
+                    <a href="/projetos/" class="mobile-nav-item">
+                        <i class="fas fa-city"></i>
+                        <span>Empreendimentos</span>
+                    </a>
+                    <a href="#" class="mobile-nav-item">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <script src="script-trabalhe-conosco.js"></script>
-</body>
-</html>
+        </section>

@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fale Conosco | Maori Incorporadora</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles-home.css">
-    <link rel="stylesheet" href="styles-fale-conosco.css">
-    <link rel="stylesheet" href="header-override.css">
-</head>
-<body>
-    <!-- Header Placeholder - será carregado dinamicamente -->
-    <div id="header-placeholder"></div>
+---
+layout: layouts/base.njk
+title: Fale Conosco | Maori Incorporadora
+css: styles-fale-conosco.css
+js: script-fale-conosco.js
+permalink: /fale-conosco/
+---
 
-    <main>
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content">
@@ -88,14 +77,27 @@
                 </div>
             </div>
         </section>
-    </main>
-
-    <!-- Footer Placeholder - será carregado dinamicamente -->
-    <div id="footer-placeholder"></div>
-
-    <!-- Carregar sistema de componentes primeiro -->
-    <script src="components-loader.js"></script>
-    <!-- Depois carregar funcionalidades específicas da página -->
-    <script src="script-fale-conosco.js"></script>
-</body>
-</html>
+        
+        <!-- Mobile Navigation (visible only on mobile) -->
+        <section class="mobile-nav-section">
+            <div class="container">
+                <div class="mobile-nav-menu">
+                    <a href="/" class="mobile-nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="/sobre/" class="mobile-nav-item">
+                        <i class="fas fa-building"></i>
+                        <span>Sobre nós</span>
+                    </a>
+                    <a href="/projetos/" class="mobile-nav-item">
+                        <i class="fas fa-city"></i>
+                        <span>Empreendimentos</span>
+                    </a>
+                    <a href="#" class="mobile-nav-item">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+            </div>
+        </section>
