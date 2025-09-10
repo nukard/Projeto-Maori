@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Teste Visual - Comparação de Headers</title>
+    <link rel="stylesheet" href="styles-home.css">
+    <style>
+        .comparison-container {
+            background: linear-gradient(135deg, #008d93, #00727a);
+            min-height: 100vh;
+            padding: 100px 20px 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .comparison-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .comparison-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .comparison-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .comparison-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .comparison-btn.current {
+            background: rgba(255,255,255,0.4);
+            border-color: rgba(255,255,255,0.6);
+        }
+        
+        .instructions {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            margin-bottom: 15px;
+            color: #FFE4B5;
+        }
+        
+        .check-item {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .check-item::before {
+            content: "📋";
+            font-size: 1.2rem;
+        }
+        
+        .status-indicator {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background: rgba(0,0,0,0.2);
+        }
+        
+        .iframe-container {
+            display: none;
+            margin-top: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        iframe {
+            width: 100%;
+            height: 80vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header da home page para comparação -->
+    <header class="transparent-header">
+        <div class="logo">
+            <img src="images/logo-white.png" alt="Maori Incorporadora">
+        </div>
+        <div class="header-right">
+            <div class="header-contacts">
+                <a href="tel:+5541995698089" class="header-phone">(41) 99569-8089</a>
+                <a href="mailto:contato@maoriincorporadora.com" class="header-email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" class="header-whatsapp" onclick="openWhatsApp('Teste visual do header!')">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <div class="header-menu">
+                <button class="menu-toggle">
+                    <span class="menu-text">MENU PRINCIPAL</span>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="comparison-container">
+            <h1 class="comparison-title">🔍 Teste de Comparação Visual</h1>
+            
+            <div class="comparison-buttons">
+                <a href="index-home.html" class="comparison-btn" target="_blank">
+                    🏠 Home Original
+                </a>
+                <a href="fale-conosco.html" class="comparison-btn" target="_blank">
+                    📞 Fale Conosco (Componentes)
+                </a>
+                <a href="teste-visual.html" class="comparison-btn current">
+                    📏 Esta Página (Referência)
+                </a>
+            </div>
+
+            <div class="instructions">
+                <h3>📋 Checklist de Comparação Visual</h3>
+                
+                <div class="check-item">
+                    <strong>Logo:</strong> Deve ter 60px de altura (mesmo tamanho da home)
+                </div>
+                
+                <div class="check-item">
+                    <strong>Telefone:</strong> Texto branco, fonte 1.1rem, à esquerda dos ícones
+                </div>
+                
+                <div class="check-item">
+                    <strong>Ícone Email:</strong> Círculo com fundo semi-transparente, 48x48px
+                </div>
+                
+                <div class="check-item">
+                    <strong>Ícone WhatsApp:</strong> Círculo com fundo semi-transparente, 48x48px
+                </div>
+                
+                <div class="check-item">
+                    <strong>Menu Principal:</strong> Botão com borda arredondada, texto "MENU PRINCIPAL"
+                </div>
+                
+                <div class="check-item">
+                    <strong>Cores:</strong> Tudo branco sobre fundo transparente
+                </div>
+                
+                <div class="check-item">
+                    <strong>Espaçamento:</strong> Gap de 35px entre elementos principais
+                </div>
+                
+                <div class="check-item">
+                    <strong>Hover Effects:</strong> Ícones devem ter efeito de elevação no hover
+                </div>
+
+                <div class="status-indicator">
+                    <strong>🎯 Objetivo:</strong> O header da página "Fale Conosco" deve ser <em>visualmente idêntico</em> ao header desta página e da home page.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="components-loader.js"></script>
+    <script>
+        // Função WhatsApp para teste
+        function openWhatsApp(message = 'Teste visual!') {
+            const phoneNumber = '5541995698089';
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>

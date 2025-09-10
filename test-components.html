@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste dos Componentes Dinâmicos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles-home.css">
+    <style>
+        .test-content {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #008d93, #00727a);
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .test-info {
+            padding: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        .loading {
+            opacity: 0.5;
+        }
+        .loaded {
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder" class="loading"></div>
+    
+    <main>
+        <section class="test-content">
+            <div class="test-info">
+                <h1>🧪 Teste dos Componentes Dinâmicos</h1>
+                <p>Esta página testa se o header e footer estão sendo carregados corretamente.</p>
+                <div id="status">⏳ Carregando componentes...</div>
+                <br>
+                <button onclick="testWhatsApp()" style="background: white; color: #008d93; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                    🔧 Testar WhatsApp
+                </button>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder" class="loading"></div>
+    
+    <!-- Scripts -->
+    <script src="components-loader.js"></script>
+    <script>
+        // Aguardar carregamento dos componentes
+        document.addEventListener('componentsLoaded', function() {
+            console.log('✅ Componentes carregados com sucesso!');
+            document.getElementById('status').innerHTML = '✅ Componentes carregados com sucesso!';
+            document.getElementById('header-placeholder').classList.remove('loading');
+            document.getElementById('header-placeholder').classList.add('loaded');
+            document.getElementById('footer-placeholder').classList.remove('loading');
+            document.getElementById('footer-placeholder').classList.add('loaded');
+        });
+        
+        function testWhatsApp() {
+            if (typeof openWhatsApp === 'function') {
+                openWhatsApp('🧪 Teste do sistema de componentes dinâmicos da Maori!');
+            } else {
+                alert('❌ Função openWhatsApp não encontrada');
+            }
+        }
+        
+        // Timeout para detectar se algo deu errado
+        setTimeout(function() {
+            if (document.getElementById('status').innerHTML.includes('Carregando')) {
+                document.getElementById('status').innerHTML = '❌ Erro ao carregar componentes';
+                console.error('❌ Componentes não foram carregados');
+            }
+        }, 5000);
+    </script>
+</body>
+</html>

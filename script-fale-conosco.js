@@ -2,11 +2,24 @@
 // Maori Incorporadora
 
 document.addEventListener('DOMContentLoaded', function() {
-    initializeContactOptions();
-    initializeScrollAnimations();
-    initializeHeaderScroll();
-    initializeSmoothScroll();
-    initializeMenuToggle();
+    // Aguardar que os componentes sejam carregados
+    document.addEventListener('componentsLoaded', function() {
+        initializeContactOptions();
+        initializeScrollAnimations();
+        initializeHeaderScroll();
+        initializeSmoothScroll();
+        // initializeMenuToggle(); // Removido pois já é inicializado pelo components-loader.js
+    });
+    
+    // Fallback: se componentsLoaded não for disparado em 3 segundos, inicializar mesmo assim
+    setTimeout(function() {
+        if (!document.querySelector('#header-placeholder header')) {
+            initializeContactOptions();
+            initializeScrollAnimations();
+            initializeHeaderScroll();
+            initializeSmoothScroll();
+        }
+    }, 3000);
 });
 
 // Contact Options Functionality
@@ -453,12 +466,14 @@ function initializeMenuToggle() {
     }
 }
 
-// WhatsApp Integration
-function openWhatsApp(message) {
-    const phoneNumber = '5541995698089'; // Maori's WhatsApp number
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, '_blank');
+// WhatsApp Integration (fallback caso não seja carregada pelos componentes)
+if (typeof window.openWhatsApp === 'undefined') {
+    window.openWhatsApp = function(message = 'Olá! Gostaria de mais informações.') {
+        const phoneNumber = '5541995698089'; // Maori's WhatsApp number
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+    };
 }
 
 // Scroll to form function
