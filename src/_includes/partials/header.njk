@@ -1,0 +1,17 @@
+<header>
+  <div class="logo">
+    <img src="/images/logo.png" alt="Maori Incorporadora">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="/" class="{{ isActive('/', page.url) }}">Home</a></li>
+      <li><a href="/sobre/" class="{{ isActive('/sobre/', page.url) }}">Sobre nós</a></li>
+      <li><a href="/projetos/" class="{{ isActive('/projetos/', page.url) }}">Empreendimentos</a></li>
+      <li><a href="/blog/" class="{{ isActive('/blog/', page.url) }}">Blog</a></li>
+      <li><a href="/trabalhe-conosco/" class="{{ isActive('/trabalhe-conosco/', page.url) }}">Trabalhe Conosco</a></li>
+    </ul>
+  </nav>
+  <button class="contact-button" onclick="openWhatsApp('Olá! Gostaria de mais informações sobre os empreendimentos da Maori.')">
+    <img src="/images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon"> (41) 99569-8089
+  </button>
+</header>
