@@ -1,29 +1,14 @@
 ---
+layout: layouts/base.njk
+title: Praya Beach Home | Maori Incorporadora
+css: styles-praya.css
+js: script-praya.js
 permalink: /praya/
+extraHead: |
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <script src="/script.js" defer></script>
 ---
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Praya Beach Home | Maori Incorporadora</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/styles-praya.css">
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <a href="/">
-                <img src="/images/logo-white.png" alt="Maori Incorporadora">
-            </a>
-        </div>
-    </header>
 
-    <main>
         <!-- Hero Banner Section -->
         <section class="hero-banner">
             <div class="hero-image">
@@ -571,127 +556,3 @@ permalink: /praya/
                 </div>
             </div>
         </section>
-    </main>
-    
-    <footer>
-        <div class="footer-top">
-            <div class="footer-info">
-                <div class="footer-logo">
-                    <img src="/images/logo-white.png" alt="Maori Incorporadora" height="40">
-                </div>
-                <div class="footer-address">
-                    Rua Capitão Souza Franco, 326<br>
-                    Curitiba | PR | Brasil
-                </div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Páginas</h3>
-                <ul>
-                    <li><a href="index-home.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre nós</a></li>
-                    <li><a href="index.html">Empreendimentos</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="trabalhe-conosco.html">Trabalhe conosco</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Contato</h3>
-                <ul>
-                    <li><a href="#" onclick="openWhatsApp('Olá! Gostaria de falar com a Maori.')"><img src="/images/whatsapp.svg" alt="WhatsApp" class="whatsapp-icon-small"> (41) 99569-8089</a></li>
-                    <li><a href="#" onclick="openWhatsApp('Olá! Tenho um terreno e gostaria de conversar sobre venda.')">Compramos seu Terreno</a></li>
-                                    <li><a href="fale-conosco.html">Fale Conosco</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-newsletter">
-                <h3>Newsletter</h3>
-                <p>Receba novidades, lançamentos e ofertas exclusivas da Maori.</p>
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Seu e-mail">
-                    <button type="submit" class="newsletter-button">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; Maori Construtora e Incorporadora 2023. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Floor Tabs Functionality
-            const floorTabs = document.querySelectorAll('.floor-tab');
-            const floorContents = document.querySelectorAll('.floor-content');
-            
-            floorTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Remove active class from all tabs
-                    floorTabs.forEach(tab => tab.classList.remove('active'));
-                    // Add active class to clicked tab
-                    tab.classList.add('active');
-                    
-                    // Hide all content
-                    floorContents.forEach(content => content.classList.remove('active'));
-                    // Show corresponding content
-                    const floor = tab.getAttribute('data-floor');
-                    document.getElementById(`${floor}-content`).classList.add('active');
-                });
-            });
-            
-            // Gallery Navigation
-            const galleryNavBtns = document.querySelectorAll('.gallery-nav-btn');
-            const galleryContainers = document.querySelectorAll('.gallery-container');
-            
-            galleryNavBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    galleryNavBtns.forEach(btn => btn.classList.remove('active'));
-                    btn.classList.add('active');
-                    
-                    galleryContainers.forEach(container => container.classList.remove('active'));
-                    const category = btn.getAttribute('data-category');
-                    document.getElementById(`${category}-gallery`).classList.add('active');
-                });
-            });
-            
-            // Floor Plan Navigation
-            const floorplanNavBtns = document.querySelectorAll('.floorplan-nav-btn');
-            const floorplanContainers = document.querySelectorAll('.floorplan-container');
-            
-            floorplanNavBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    floorplanNavBtns.forEach(btn => btn.classList.remove('active'));
-                    btn.classList.add('active');
-                    
-                    floorplanContainers.forEach(container => container.classList.remove('active'));
-                    const plan = btn.getAttribute('data-plan');
-                    document.getElementById(`${plan}-plan`).classList.add('active');
-                });
-            });
-        });
-    </script>
-    
-    <script>
-        // Função para abrir WhatsApp
-        function openWhatsApp(message = 'Olá! Gostaria de mais informações.') {
-            const phoneNumber = '5541995698089'; // Número no formato internacional (sem + e sem espaços)
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
-            // Abrir em nova aba
-            window.open(whatsappURL, '_blank');
-        }
-    </script>
-</body>
-</html> 
