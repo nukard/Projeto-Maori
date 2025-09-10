@@ -186,85 +186,13 @@ header.scrolled .hamburger span {
     background-color: var(--primary-color);
 }
 
-/* Dropdown Menu */
-.dropdown-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 60%;
-    max-width: 800px;
-    height: 100vh;
-    background: white;
-    transition: right 0.4s ease;
-    z-index: 1000;
-    overflow-y: auto;
-}
+/* Dropdown menu styles moved to shared-components.css */
 
-.dropdown-menu.active {
-    right: 0;
-}
+/* Menu container and left styles moved to shared-components.css */
 
-.menu-container {
-    display: flex;
-    height: 100%;
-}
+/* Menu right and close styles moved to shared-components.css */
 
-.menu-left {
-    flex: 1;
-    background: white;
-    padding: 60px 40px 40px;
-    display: flex;
-    flex-direction: column;
-}
-
-.menu-right {
-    flex: 1;
-    background: var(--primary-color);
-    padding: 60px 40px 40px;
-    color: white;
-    position: relative;
-}
-
-.menu-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
-    cursor: pointer;
-    color: white;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.menu-close:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.menu-logo img {
-    height: 50px;
-    margin-bottom: 30px;
-}
-
-.menu-company {
-    margin-bottom: 40px;
-}
-
-.menu-company a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.menu-company a:hover {
-    color: var(--secondary-color);
-}
+/* All remaining menu styles moved to shared-components.css */
 
 .menu-section {
     margin-bottom: 30px;

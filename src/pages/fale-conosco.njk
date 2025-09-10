@@ -1,0 +1,103 @@
+---
+layout: layouts/base.njk
+title: Fale Conosco | Maori Incorporadora
+css: styles-fale-conosco.css
+js: script-fale-conosco.js
+permalink: /fale-conosco/
+---
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge">Contato</div>
+                <h1>FALE CONOSCO</h1>
+                <p>Estamos aqui para criar conexões autênticas e realizarmos grandes projetos juntos</p>
+            </div>
+        </section>
+
+        <!-- Contact Options Section -->
+        <section class="contact-options">
+            <div class="container">
+                <div class="intro-text">
+                    <p>A Maori Incorporadora é referência na construção de edifícios residenciais, comerciais e corporativos de alto padrão. Além da arquitetura e acabamentos diferenciados, estão localizados nas regiões mais nobres de Curitiba.</p>
+                </div>
+
+                <div class="contact-choice">
+                    <div class="choice-buttons">
+                        <button class="choice-btn active" id="relacionamentoBtn" onclick="selectContactType('relacionamento')">
+                            CONVERSE COM A ÁREA DE<br>
+                            <strong>RELACIONAMENTO COM O CLIENTE</strong>
+                        </button>
+                        <span class="choice-divider">OU</span>
+                        <button class="choice-btn" id="consultoresBtn" onclick="selectContactType('consultores')">
+                            CONVERSE COM UM DOS NOSSOS<br>
+                            <strong>CONSULTORES COMERCIAIS</strong>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Info Section -->
+        <section class="contact-info">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Nosso Endereço</h3>
+                        <p>Rua Capitão Souza Franco, 326<br>Curitiba | PR | Brasil</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Telefone</h3>
+                        <p><a href="tel:+5541995698089">(41) 99569-8089</a></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>E-mail</h3>
+                        <p><a href="mailto:contato@maoriincorporadora.com">contato@maoriincorporadora.com</a></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp</h3>
+                        <p><a href="#" onclick="openWhatsApp('Olá! Gostaria de falar com a Maori.')">(41) 99569-8089</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mobile Navigation (visible only on mobile) -->
+        <section class="mobile-nav-section">
+            <div class="container">
+                <div class="mobile-nav-menu">
+                    <a href="/" class="mobile-nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    <a href="/sobre/" class="mobile-nav-item">
+                        <i class="fas fa-building"></i>
+                        <span>Sobre nós</span>
+                    </a>
+                    <a href="/projetos/" class="mobile-nav-item">
+                        <i class="fas fa-city"></i>
+                        <span>Empreendimentos</span>
+                    </a>
+                    <a href="#" class="mobile-nav-item">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Blog</span>
+                    </a>
+                </div>
+            </div>
+        </section>

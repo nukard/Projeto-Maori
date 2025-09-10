@@ -33,86 +33,13 @@ body {
     padding: 0 20px;
 }
 
-/* Header */
-header {
-    background-color: white;
-    padding: 20px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-}
+/* Header styles are now handled by shared-components.css */
 
-/* Transparent Header for Hero */
-.transparent-header {
-    background-color: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 25px 5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    box-shadow: none;
-    transition: all 0.3s ease;
-}
+/* Transparent header styles are now handled by shared-components.css */
 
-.logo img {
-    height: 50px;
-}
+/* Logo styles are now handled by shared-components.css */
 
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 25px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    font-size: 14px;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-.transparent-header nav ul li a {
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.transparent-header .contact-button {
-    text-shadow: none;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-nav ul li a::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-nav ul li a.active::after,
-nav ul li a:hover::after {
-    width: 100%;
-}
+/* Navigation styles are now handled by shared-components.css */
 
 .contact-button {
     background-color: var(--primary-color);
@@ -136,10 +63,7 @@ nav ul li a:hover::after {
     vertical-align: middle;
 }
 
-/* Main Content */
-main {
-    margin-top: 90px;
-}
+/* Main content margins are now handled by shared-components.css */
 
 /* Common Elements */
 .section-header {
