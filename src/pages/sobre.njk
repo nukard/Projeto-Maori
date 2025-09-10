@@ -1,42 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nós | Maori Incorporadora</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles-sobre.css">
-    <script src="https://www.youtube.com/iframe_api"></script>
-</head>
-<body>
-    <header class="transparent-header">
-        <div class="logo">
-            <a href="index-home.html">
-                <img src="images/logo-white.png" alt="Maori Incorporadora">
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index-home.html">Home</a></li>
-                <li><a href="sobre.html" class="active">Sobre nós</a></li>
-                <li><a href="index.html">Empreendimentos</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="trabalhe-conosco.html">Trabalhe Conosco</a></li>
-            </ul>
-        </nav>
-        <button class="contact-button" onclick="openWhatsApp('Olá! Gostaria de conhecer mais sobre a Maori Incorporadora.')">
-            <img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon"> (41) 99569-8089
-        </button>
-    </header>
-
-    <main>
+---
+layout: layouts/base.njk
+title: Sobre Nós | Maori Incorporadora
+css: styles-sobre.css
+js: script.js
+permalink: /sobre/index.html
+extraHead: |
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <script src="https://www.youtube.com/iframe_api"></script>
+---
         <!-- Hero Section -->
         <section class="hero-about">
-            <div class="hero-bg" style="background-image: url('images/praya-leisure-02.jpg')"></div>
+            <div class="hero-bg" style="background-image: url('/images/praya-leisure-02.jpg')"></div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
                 <div class="hero-badge">Sobre a Maori</div>
@@ -90,7 +64,7 @@
         <section class="essence-section" id="essence">
             <div class="essence-background">
                 <div class="essence-image-placeholder">
-                    <img src="images/praya-leisure-01.jpg" alt="Jardins Caiobá">
+                    <img src="/images/praya-leisure-01.jpg" alt="Jardins Caiobá">
                     <div class="image-placeholder">
                     </div>
                 </div>
@@ -258,185 +232,8 @@
                     </p>
                     <div class="cta-buttons">
                         <a href="#" class="btn-primary" onclick="openWhatsApp('Olá! Gostaria de agendar uma conversa com a equipe da Maori.')">Agendar uma conversa</a>
-                        <a href="index.html" class="btn-outline">Conhecer empreendimentos</a>
+                        <a href="/projetos/" class="btn-outline">Conhecer empreendimentos</a>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
-
-    <footer>
-        <div class="footer-top">
-            <div class="footer-info">
-                <div class="footer-logo">
-                    <img src="images/logo-white.png" alt="Maori Incorporadora" height="40">
-                </div>
-                <div class="footer-address">
-                    Rua Capitão Souza Franco, 326<br>
-                    Curitiba | PR | Brasil
-                </div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Páginas</h3>
-                <ul>
-                    <li><a href="index-home.html">Home</a></li>
-                    <li><a href="sobre.html">Sobre nós</a></li>
-                    <li><a href="index.html">Empreendimentos</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="trabalhe-conosco.html">Trabalhe conosco</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Contato</h3>
-                <ul>
-                    <li><a href="#" onclick="openWhatsApp('Olá! Gostaria de falar com a Maori.')"><img src="images/whatsapp-white.svg" alt="WhatsApp" class="whatsapp-icon-small"> (41) 99569-8089</a></li>
-                    <li><a href="#" onclick="openWhatsApp('Olá! Tenho um terreno e gostaria de conversar sobre venda.')">Compramos seu Terreno</a></li>
-                                    <li><a href="fale-conosco.html">Fale Conosco</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-newsletter">
-                <h3>Newsletter</h3>
-                <p>Receba novidades, lançamentos e ofertas exclusivas da Maori.</p>
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Seu e-mail">
-                    <button type="submit" class="newsletter-button">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>© Maori Construtora e Incorporadora 2023. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-    
-    <script>
-        // YouTube Player API
-        let player;
-        let isVideoInView = false;
-        let loopInterval;
-
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('maori-luxury-video', {
-                height: '100%',
-                width: '100%',
-                videoId: 'AyAwwtnsDq0',
-                playerVars: {
-                    'autoplay': 0,
-                    'controls': 0,
-                    'showinfo': 0,
-                    'rel': 0,
-                    'loop': 0,
-                    'mute': 1,
-                    'playsinline': 1,
-                    'modestbranding': 1,
-                    'iv_load_policy': 3,
-                    'cc_load_policy': 0,
-                    'fs': 0,
-                    'disablekb': 1
-                },
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-
-        function onPlayerReady(event) {
-            // Player está pronto
-            checkVideoVisibility();
-        }
-
-        function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING && isVideoInView) {
-                // Inicia o loop quando o vídeo está tocando
-                startVideoLoop();
-            } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
-                // Para o loop quando pausado ou terminado
-                clearInterval(loopInterval);
-            }
-        }
-
-        function startVideoLoop() {
-            clearInterval(loopInterval);
-            loopInterval = setInterval(() => {
-                if (player && player.getCurrentTime) {
-                    const currentTime = player.getCurrentTime();
-                    // Se passou dos 30 segundos, volta para 18 segundos
-                    if (currentTime >= 30) {
-                        player.seekTo(18, true);
-                    }
-                }
-            }, 100); // Verifica a cada 100ms
-        }
-
-        function checkVideoVisibility() {
-            const videoSection = document.querySelector('.luxury-video-section');
-            if (!videoSection) return;
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Vídeo entrou na tela
-                        isVideoInView = true;
-                        if (player && player.playVideo) {
-                            player.seekTo(18, true); // Começa aos 18 segundos
-                            player.playVideo();
-                        }
-                    } else {
-                        // Vídeo saiu da tela
-                        isVideoInView = false;
-                        if (player && player.pauseVideo) {
-                            player.pauseVideo();
-                        }
-                        clearInterval(loopInterval);
-                    }
-                });
-            }, {
-                threshold: 0.5 // Ativa quando 50% da seção está visível
-            });
-
-            observer.observe(videoSection);
-        }
-
-        // Função para abrir WhatsApp
-        function openWhatsApp(message = 'Olá! Gostaria de mais informações.') {
-            const phoneNumber = '5541995698089';
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            window.open(whatsappURL, '_blank');
-        }
-
-        // Animações ao scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observar elementos para animação
-        document.addEventListener('DOMContentLoaded', () => {
-            const animateElements = document.querySelectorAll('.dna-item, .essence-content');
-            animateElements.forEach(el => observer.observe(el));
-        });
-    </script>
-</body>
-</html>
