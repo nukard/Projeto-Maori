@@ -4,11 +4,11 @@
   </div>
   <nav>
     <ul>
-      <li><a href="/" class="{{ isActive('/', page.url) }}">Home</a></li>
-      <li><a href="/sobre/" class="{{ isActive('/sobre/', page.url) }}">Sobre nós</a></li>
-      <li><a href="/projetos/" class="{{ isActive('/projetos/', page.url) }}">Empreendimentos</a></li>
-      <li><a href="/blog/" class="{{ isActive('/blog/', page.url) }}">Blog</a></li>
-      <li><a href="/trabalhe-conosco/" class="{{ isActive('/trabalhe-conosco/', page.url) }}">Trabalhe Conosco</a></li>
+      <li><a href="/" {% if page.url == '/' %}class="active"{% endif %}>Home</a></li>
+      <li><a href="/sobre/" {% if page.url == '/sobre/' or page.url.startsWith('/sobre/') %}class="active"{% endif %}>Sobre nós</a></li>
+      <li><a href="/projetos/" {% if page.url == '/projetos/' or page.url.startsWith('/projetos/') %}class="active"{% endif %}>Empreendimentos</a></li>
+      <li><a href="/blog/" {% if page.url == '/blog/' or page.url.startsWith('/blog/') %}class="active"{% endif %}>Blog</a></li>
+      <li><a href="/trabalhe-conosco/" {% if page.url == '/trabalhe-conosco/' or page.url.startsWith('/trabalhe-conosco/') %}class="active"{% endif %}>Trabalhe Conosco</a></li>
     </ul>
   </nav>
   <button class="contact-button" onclick="openWhatsApp('Olá! Gostaria de mais informações sobre os empreendimentos da Maori.')">
