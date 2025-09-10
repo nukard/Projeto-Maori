@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollAnimations();
     initializeHeaderScroll();
     initializeSmoothScroll();
-    initializeMenuToggle();
+    // Menu toggle is now handled by shared-components.js
 });
 
 // Form Functionality

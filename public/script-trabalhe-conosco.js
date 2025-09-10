@@ -588,45 +588,7 @@ function initializeHeaderScroll() {
     }
 }
 
-// Menu toggle functionality
-function initializeMenuToggle() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    const menuClose = document.querySelector('.menu-close');
-    const body = document.body;
-    
-    if (menuToggle && dropdownMenu) {
-        menuToggle.addEventListener('click', function() {
-            dropdownMenu.classList.add('active');
-            // Removed body.style.overflow = 'hidden' to allow scrolling
-        });
-    }
-    
-    if (menuClose) {
-        menuClose.addEventListener('click', function() {
-            dropdownMenu.classList.remove('active');
-            // Removed body.style.overflow = 'auto' since we're not blocking scroll anymore
-        });
-    }
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (dropdownMenu && dropdownMenu.classList.contains('active')) {
-            // Check if click is outside the menu and menu toggle button
-            if (!dropdownMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                dropdownMenu.classList.remove('active');
-            }
-        }
-    });
-    
-    // Close menu with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && dropdownMenu && dropdownMenu.classList.contains('active')) {
-            dropdownMenu.classList.remove('active');
-            // Removed body.style.overflow = 'auto' since we're not blocking scroll anymore
-        }
-    });
-}
+// Menu toggle functionality is now handled by shared-components.js
 
 // Smooth scrolling for internal links
 function initializeSmoothScroll() {
@@ -696,7 +658,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollAnimations();
     initializeHeaderScroll();
     initializeSmoothScroll();
-    initializeMenuToggle();
+    // Menu toggle is now handled by shared-components.js
 });
 
 // Prevent form submission if there are validation errors

@@ -11,6 +11,8 @@
   {% if css %}
   <link rel="stylesheet" href="/{{ css }}">
   {% endif %}
+  <!-- Shared header/footer styles - loads last to override page-specific styles -->
+  <link rel="stylesheet" href="/shared-components.css">
   {% if extraHead %}
   {{ extraHead | safe }}
   {% endif %}
@@ -24,5 +26,7 @@
   {% if js %}
   <script src="/{{ js }}"></script>
   {% endif %}
+  <!-- Shared header/footer functionality - loads last to override page-specific menu handlers -->
+  <script src="/shared-components.js"></script>
 </body>
 </html>
