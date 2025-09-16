@@ -50,7 +50,7 @@ body {
     vertical-align: middle;
 }
 
-/* Header */
+/* Header - usar estilos da home page (styles-home.css)
 header {
     background-color: transparent;
     padding: 20px 5%;
@@ -76,7 +76,6 @@ header.scrolled {
     padding: 15px 5%;
 }
 
-/* Header text colors when scrolled */
 header.scrolled .header-phone {
     color: var(--primary-color);
 }
@@ -93,17 +92,21 @@ header.scrolled .menu-toggle {
 header.scrolled .hamburger span {
     background-color: var(--primary-color);
 }
+*/
 
 .logo {
     z-index: 1001;
 }
 
+/* Logo - usar estilos da home page 
 .logo img {
     height: 40px;
     width: auto;
     transition: all 0.3s ease;
 }
+*/
 
+/* Header layout - usar estilos da home page
 .header-right {
     display: flex;
     align-items: center;
@@ -115,7 +118,9 @@ header.scrolled .hamburger span {
     align-items: center;
     gap: 15px;
 }
+*/
 
+/* Header phone - usar estilos da home page
 .header-phone {
     color: white;
     text-decoration: none;
@@ -127,7 +132,9 @@ header.scrolled .hamburger span {
 .header-phone:hover {
     color: var(--gold-accent);
 }
+*/
 
+/* Header icons - usar estilos da home page
 .header-email,
 .header-whatsapp {
     color: white;
@@ -141,8 +148,9 @@ header.scrolled .hamburger span {
     color: var(--gold-accent);
     transform: scale(1.1);
 }
+*/
 
-/* Header Menu */
+/* Header Menu - usar estilos da home page
 .header-menu {
     position: relative;
 }
@@ -177,7 +185,9 @@ header.scrolled .hamburger span {
     background: white;
     transition: var(--transition);
 }
+*/
 
+/* Menu toggle active states - usar estilos da home page
 .menu-toggle.active .hamburger span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
 }
@@ -189,8 +199,9 @@ header.scrolled .hamburger span {
 .menu-toggle.active .hamburger span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
 }
+*/
 
-/* Dropdown Menu */
+/* Dropdown Menu - usar estilos da home page
 .dropdown-menu {
     position: fixed;
     top: 0;
@@ -202,7 +213,7 @@ header.scrolled .hamburger span {
     transition: right 0.4s ease;
     z-index: 1000;
     overflow-y: auto;
-}
+}*/
 
 .dropdown-menu.active {
     right: 0;
