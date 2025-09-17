@@ -15,7 +15,7 @@
       </a>
     </div>
     <div class="header-menu">
-      <button class="menu-toggle">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
         <span class="menu-text">MENU PRINCIPAL</span>
         <div class="hamburger">
           <span></span>
@@ -23,7 +23,10 @@
           <span></span>
         </div>
       </button>
-      <nav class="dropdown-menu">
+      <nav class="dropdown-menu" id="primary-menu" aria-hidden="true">
+        <button class="menu-close" type="button" aria-label="Fechar menu">
+          <span>&times;</span>
+        </button>
         <div class="menu-container">
           <!-- Left Side - White Background -->
           <div class="menu-left">
@@ -94,4 +97,3 @@
     </div>
   </div>
 </header>
-

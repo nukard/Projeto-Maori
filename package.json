@@ -6,12 +6,21 @@
   "scripts": {
     "dev": "eleventy --serve --watch",
     "start": "npm run dev",
-    "build": "eleventy",
+    "build": "npm run optimize && eleventy",
+    "optimize": "npm run optimize-css && npm run optimize-js && npm run optimize-images",
+    "optimize-css": "npx clean-css-cli -o _site/styles.min.css _site/styles.css _site/styles-home.css _site/shared-components.css",
+    "optimize-js": "npx terser _site/script.js _site/script-home.js _site/shared-components.js -o _site/bundle.min.js",
+    "optimize-images": "node scripts/optimize-images.js",
     "preview": "npx wrangler pages dev _site -- npm run build",
-    "deploy": "npx wrangler pages deploy _site"
+    "deploy": "npm run build && npx wrangler pages deploy _site"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-img": "^4.0.2",
+    "html-minifier": "^4.0.0",
+    "clean-css": "^5.3.3",
+    "terser": "^5.31.0",
+    "sharp": "^0.33.3"
   },
   "engines": {
     "node": ">=18"

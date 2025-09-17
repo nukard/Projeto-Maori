@@ -167,11 +167,13 @@ main {
     right: -100%;
     width: 60%;
     height: 100vh;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 9999;
+    overflow: hidden;
 }
 
 .dropdown-menu.show {
@@ -184,6 +186,30 @@ main {
     display: flex;
     width: 100%;
     height: 100%;
+}
+
+.menu-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+    font-size: 1.4rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    z-index: 10000;
+}
+
+.menu-close:hover {
+    background: rgba(0, 0, 0, 0.75);
+    transform: translateY(-1px);
 }
 
 /* Left Side - White Background */
@@ -606,24 +632,36 @@ footer {
     
     /* Menu Responsive - Mobile */
     .dropdown-menu {
-        width: 95%;
-        right: -95%;
+        width: 100%;
+        right: -100%;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(14px);
     }
     
     .menu-container {
         flex-direction: column;
+        height: 100%;
+        overflow-y: auto;
+        padding: 32px 0 0;
+        gap: 0;
+        background: #ffffff;
     }
     
-    .menu-left {
-        width: 100%;
-        height: 40%;
-        padding: 30px 25px;
-    }
-    
+    .menu-left,
     .menu-right {
         width: 100%;
-        height: 60%;
-        padding: 30px 25px;
+        height: auto;
+        padding: 32px 24px;
+    }
+
+    .menu-right {
+        background: linear-gradient(135deg, rgba(0,141,147,0.95) 0%, rgba(42,106,109,0.95) 100%);
+    }
+    
+    .menu-close {
+        display: flex;
+        top: 32px;
     }
     
     .menu-company a {

@@ -59,36 +59,55 @@ function initializeMenuToggle() {
     const dropdownMenu = document.querySelector('.dropdown-menu');
     
     if (menuToggle && dropdownMenu) {
+        const closeButton = dropdownMenu.querySelector('.menu-close');
+
         // Remove all existing event listeners by cloning the element
         const newMenuToggle = menuToggle.cloneNode(true);
         menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
-        
+
+        const setMenuState = (open) => {
+            dropdownMenu.classList.toggle('show', open);
+            document.body.classList.toggle('menu-open', open);
+            dropdownMenu.setAttribute('aria-hidden', String(!open));
+            newMenuToggle.setAttribute('aria-expanded', String(open));
+        };
+
+        setMenuState(dropdownMenu.classList.contains('show'));
+
         // Add our event listener to the new element
         newMenuToggle.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            dropdownMenu.classList.toggle('show');
+            const willOpen = !dropdownMenu.classList.contains('show');
+            setMenuState(willOpen);
         });
+
+        if (closeButton) {
+            closeButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                setMenuState(false);
+            });
+        }
 
         // Close dropdown when clicking outside
         document.addEventListener('click', function(event) {
             if (!newMenuToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.remove('show');
+                setMenuState(false);
             }
         });
 
         // Close dropdown on escape key
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
-                dropdownMenu.classList.remove('show');
+                setMenuState(false);
             }
         });
-        
+
         // Close menu when clicking on menu links
         const menuLinks = dropdownMenu.querySelectorAll('a');
         menuLinks.forEach(link => {
             link.addEventListener('click', function() {
-                dropdownMenu.classList.remove('show');
+                setMenuState(false);
             });
         });
     }

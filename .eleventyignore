@@ -1,0 +1,14 @@
+# Performance: Ignore non-production files
+node_modules/
+.git/
+.cache/
+.tmp/
+
+# Ignore development files
+*.log
+.DS_Store
+Thumbs.db
+
+# Ignore large/unused images during build
+# Uncomment to ignore specific large images during development
+# public/images/large-image-*.jpg
